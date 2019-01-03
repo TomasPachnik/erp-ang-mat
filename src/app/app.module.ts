@@ -9,13 +9,20 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableComponent } from './table/table.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './home-page/home-page.component';
+
+const appRoutes: Routes = [
+  { path: 'home', component: HomePageComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     DashboardComponent,
-    TableComponent
+    TableComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +39,7 @@ import { TableComponent } from './table/table.component';
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
+    RouterModule.forRoot(appRoutes),
     MatSortModule
   ],
   providers: [],
