@@ -19,13 +19,12 @@ import {
   MatPaginatorModule,
   MatSortModule
 } from '@angular/material';
-import {DashboardComponent} from './dashboard/dashboard.component';
 import {TableComponent} from './table/table.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HomePageComponent} from './home-page/home-page.component';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: "/home", pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent}
 ];
 
@@ -33,9 +32,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavComponent,
-    DashboardComponent,
     TableComponent,
-    HomePageComponent
+    HomePageComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
