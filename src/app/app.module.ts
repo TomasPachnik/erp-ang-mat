@@ -19,7 +19,6 @@ import {
   MatPaginatorModule,
   MatSortModule
 } from '@angular/material';
-import {TableComponent} from './table/table.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HomePageComponent} from './home-page/home-page.component';
 
@@ -32,7 +31,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavComponent,
-    TableComponent,
     HomePageComponent,
     NavComponent
   ],
