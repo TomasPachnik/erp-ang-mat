@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {Router} from '@angular/router';
 
 export interface Customer {
   uuid: string;
@@ -28,11 +29,15 @@ export class CustomersComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  selectRow(customer) {
+    this.router.navigate(['/customers/customer-detail/' + customer.uuid]);
   }
 
 }

@@ -6,3 +6,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .moved-down{
   padding: 60px;
 }
+.mat-row:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
