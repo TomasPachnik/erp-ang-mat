@@ -5,10 +5,9 @@ import {User} from './user';
 
 @Injectable()
 export class AuthService {
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-  get isLoggedIn() {
-    return this.loggedIn.asObservable();
+  isLoggedIn() {
+    return sessionStorage.getItem('token') !== null;
   }
 
   constructor(private router: Router) {
@@ -16,13 +15,13 @@ export class AuthService {
 
   login(user: User) {
     if (user.userName !== '' && user.password !== '') {
-      this.loggedIn.next(true);
+      sessionStorage.setItem('token', 'value');
       this.router.navigate(['/']);
     }
   }
 
   logout() {
-    this.loggedIn.next(false);
+    sessionStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 }

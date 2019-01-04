@@ -5,9 +5,10 @@ import {LoginComponent} from './login/login.component';
 import {LoginLayoutComponent} from './layouts/login-layout/login-layout.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
-import {UserSettingsComponent} from "./user/user-settings/user-settings.component";
-import {CustomersComponent} from "./customer/customers/customers.component";
+import {UserSettingsComponent} from './user/user-settings/user-settings.component';
+import {CustomersComponent} from './customer/customers/customers.component';
 import {SuppliersComponent} from './supplier/suppliers/suppliers.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
       {path: '', component: HomePageComponent},
       {path: 'user/settings', component: UserSettingsComponent},
       {path: 'customers', component: CustomersComponent},
-      {path: 'suppliers', component: SuppliersComponent}
+      {path: 'suppliers', component: SuppliersComponent},
+      {path: '404', component: NotFoundComponent}
     ]
   },
   {
@@ -28,7 +30,7 @@ const routes: Routes = [
       {path: 'login', component: LoginComponent}
     ]
   },
-  {path: '**', redirectTo: ''}
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({

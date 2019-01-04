@@ -36,6 +36,7 @@ import {LoginLayoutComponent} from './layouts/login-layout/login-layout.componen
 import {UserSettingsComponent} from './user/user-settings/user-settings.component';
 import {CustomersComponent} from './customer/customers/customers.component';
 import { SuppliersComponent } from './supplier/suppliers/suppliers.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     LoginLayoutComponent,
     UserSettingsComponent,
     CustomersComponent,
-    SuppliersComponent
+    SuppliersComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
