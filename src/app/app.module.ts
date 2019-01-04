@@ -31,6 +31,7 @@ import {LoginComponent} from './login/login.component';
 import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
 import {LoginLayoutComponent} from './layouts/login-layout/login-layout.component';
 import { UserSettingsComponent } from './user/user-settings/user-settings.component';
+import { CustomersComponent } from './customer/customers/customers.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     LoginComponent,
     HomeLayoutComponent,
     LoginLayoutComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
+    CustomersComponent
   ],
   imports: [
     BrowserModule,

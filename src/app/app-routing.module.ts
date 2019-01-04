@@ -6,6 +6,7 @@ import {LoginLayoutComponent} from './layouts/login-layout/login-layout.componen
 import {HomePageComponent} from './home-page/home-page.component';
 import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
 import {UserSettingsComponent} from "./user/user-settings/user-settings.component";
+import {CustomersComponent} from "./customer/customers/customers.component";
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: '', component: HomePageComponent},
-      {path: 'user/settings', component: UserSettingsComponent}
+      {path: 'user/settings', component: UserSettingsComponent},
+      {path: 'customers', component: CustomersComponent}
     ]
   },
   {
