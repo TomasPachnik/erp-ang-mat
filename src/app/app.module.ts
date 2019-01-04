@@ -16,6 +16,7 @@ import {
   MatInputModule,
   MatFormFieldModule,
   MatListModule,
+  MatTabsModule,
   MatGridListModule,
   MatCardModule,
   MatMenuModule,
@@ -62,8 +63,8 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatTabsModule,
     MatListModule,
-    MatFormFieldModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
@@ -75,6 +76,7 @@ const appRoutes: Routes = [
   exports: [
     MatToolbarModule,
     MatCardModule,
+    MatTabsModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule
