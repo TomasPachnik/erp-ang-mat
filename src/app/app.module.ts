@@ -29,6 +29,7 @@ import {HeaderComponent} from './header/header.component';
 import {LoginComponent} from './login/login.component';
 import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
 import {LoginLayoutComponent} from './layouts/login-layout/login-layout.component';
+import { UserSettingsComponent } from './user/user-settings/user-settings.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     HomeLayoutComponent,
-    LoginLayoutComponent
+    LoginLayoutComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,

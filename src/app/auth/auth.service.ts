@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { User } from './user';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {BehaviorSubject} from 'rxjs';
+import {User} from './user';
 
 @Injectable()
 export class AuthService {
@@ -11,12 +11,11 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
-  constructor(
-    private router: Router
-  ) {}
+  constructor(private router: Router) {
+  }
 
   login(user: User) {
-    if (user.userName !== '' && user.password !== '' ) {
+    if (user.userName !== '' && user.password !== '') {
       this.loggedIn.next(true);
       this.router.navigate(['/']);
     }
