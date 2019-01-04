@@ -7,6 +7,7 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
 import {UserSettingsComponent} from "./user/user-settings/user-settings.component";
 import {CustomersComponent} from "./customer/customers/customers.component";
+import {SuppliersComponent} from './supplier/suppliers/suppliers.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
     children: [
       {path: '', component: HomePageComponent},
       {path: 'user/settings', component: UserSettingsComponent},
-      {path: 'customers', component: CustomersComponent}
+      {path: 'customers', component: CustomersComponent},
+      {path: 'suppliers', component: SuppliersComponent}
     ]
   },
   {

@@ -22,7 +22,10 @@ import {
   MatMenuModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatSnackBarModule,
+  MatCheckboxModule,
+  MatSelectModule
 } from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import {HomePageComponent} from './home-page/home-page.component';
@@ -30,8 +33,9 @@ import {HeaderComponent} from './header/header.component';
 import {LoginComponent} from './login/login.component';
 import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
 import {LoginLayoutComponent} from './layouts/login-layout/login-layout.component';
-import { UserSettingsComponent } from './user/user-settings/user-settings.component';
-import { CustomersComponent } from './customer/customers/customers.component';
+import {UserSettingsComponent} from './user/user-settings/user-settings.component';
+import {CustomersComponent} from './customer/customers/customers.component';
+import { SuppliersComponent } from './supplier/suppliers/suppliers.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -49,7 +53,8 @@ const appRoutes: Routes = [
     HomeLayoutComponent,
     LoginLayoutComponent,
     UserSettingsComponent,
-    CustomersComponent
+    CustomersComponent,
+    SuppliersComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +78,10 @@ const appRoutes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     RouterModule.forRoot(appRoutes),
-    MatSortModule
+    MatSortModule,
+    MatSnackBarModule,
+    MatCheckboxModule,
+    MatSelectModule
   ],
   exports: [
     MatToolbarModule,
@@ -81,7 +89,10 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

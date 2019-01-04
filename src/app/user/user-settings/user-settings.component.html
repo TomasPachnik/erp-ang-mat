@@ -3,10 +3,37 @@
     <mat-card-title>User Settings</mat-card-title>
     <mat-card-content>
       <mat-tab-group>
+
         <mat-tab label="User details">
-          <h1>Some tab content</h1>
-          <p>...</p>
+          <br/>
+          <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitUserDetailsForm(userDetailsForm.value)">
+            <div class="form-container">
+              <mat-form-field>
+                <input matInput placeholder="Username" formControlName="username" requireds>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Name and surname" formControlName="name" requireds>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email" required>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Phone" formControlName="phone">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-select placeholder="Select one" formControlName="active" required>
+                  <mat-option value="true">Active</mat-option>
+                  <mat-option value="false">Inactive</mat-option>
+                </mat-select>
+                <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+              </mat-form-field>
+              <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
+                      [disabled]="!userDetailsForm.valid">Submit
+              </button>
+            </div>
+          </form>
         </mat-tab>
+
         <mat-tab label="Password change">
           <br/>
           <form [formGroup]="userPasswordForm" (ngSubmit)="onSubmitUserPasswordForm(userPasswordForm.value)">
@@ -27,12 +54,14 @@
 
               <mat-form-field>
                 <input matInput placeholder="Enter new password again" [type]="hideNewAgain ? 'password' : 'text'"
-                       formControlName="passwordNewAgain" required>
+                       formControlName="passwordNewAgain" required [errorStateMatcher]="matcher">
                 <mat-icon matSuffix (click)="hideNewAgain = !hideNewAgain">{{hideNewAgain ? 'visibility_off' :
                   'visibility'}}
                 </mat-icon>
+                <mat-error *ngIf="userPasswordForm.hasError('notSame')">Passwords do not match</mat-error>
               </mat-form-field>
-              <button class="submit-btn small-button" color="primary" mat-raised-button type="submit">Submit
+              <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
+                      [disabled]="!userPasswordForm.valid">Submit
               </button>
             </div>
           </form>
