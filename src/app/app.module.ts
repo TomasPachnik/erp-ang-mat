@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavComponent} from './nav/nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
+import {HttpClientModule} from '@angular/common/http';
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -39,6 +40,7 @@ import {CustomersComponent} from './customer/customers/customers.component';
 import {SuppliersComponent} from './supplier/suppliers/suppliers.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
+import {RestService} from './rest.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -87,7 +89,8 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
   ],
   exports: [
     MatToolbarModule,
@@ -101,7 +104,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatTooltipModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

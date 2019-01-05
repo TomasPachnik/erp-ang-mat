@@ -2,7 +2,7 @@
   <span class="fill-remaining-space"></span>
   <button mat-button>Menu Option 01</button>
   <button mat-button>Menu Option 02</button>
-  <button mat-flat-button color="warn" [matMenuTriggerFor]="menu">Menu</button>
+  <button mat-flat-button color="warn" [matMenuTriggerFor]="menu">{{username}}</button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="userSettings()">Settings</button>
     <button mat-menu-item (click)="onLogout()">Logout</button>

@@ -1,22 +1,24 @@
 import {Component} from '@angular/core';
 import {AuthService} from './../auth/auth.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styles: [
-    `.angular-logo {
-        margin: 0 4px 3px 0;
-        height: 35px;
-        vertical-align: middle;
+      `.angular-logo {
+      margin: 0 4px 3px 0;
+      height: 35px;
+      vertical-align: middle;
     }
     `
   ]
 })
 export class HeaderComponent {
+  username = '';
 
   constructor(private authService: AuthService, private router: Router) {
+    this.username = authService.getUsername();
   }
 
   userSettings() {

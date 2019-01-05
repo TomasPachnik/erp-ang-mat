@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
   `,
   styles: []
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(public http: HttpClient) {
+  }
+
+  ping() {
+    this.http
+      .get('http://example.com/api/things')
+      .subscribe(data => console.log(data), err => console.log(err));
+  }
+}
