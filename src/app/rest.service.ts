@@ -41,4 +41,32 @@ export class RestService {
     );
   }
 
+  getCustomers(): Observable<any> {
+    return this.http.get(endpoint() + 'customers/').pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  getCustomer(uuid): Observable<any> {
+    return this.http.get(endpoint() + 'customers/get/' + uuid).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  updateCustomer(customer): Observable<any> {
+    return this.http.post(endpoint() + 'customers/save', JSON.stringify(customer), httpOptions).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  removeCustomer(uuid): Observable<any> {
+    return this.http.get(endpoint() + 'customers/remove/' + uuid).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
 }

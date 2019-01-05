@@ -8,7 +8,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavComponent} from './nav/nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -41,6 +41,7 @@ import {SuppliersComponent} from './supplier/suppliers/suppliers.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
 import {RestService} from './rest.service';
+import {MyHttpInterceptor} from './auth/http.interceptor';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -104,7 +105,12 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatTooltipModule
   ],
-  providers: [AuthService, AuthGuard, RestService],
+  providers: [AuthService, AuthGuard, RestService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyHttpInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
