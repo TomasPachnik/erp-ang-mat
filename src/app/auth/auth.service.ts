@@ -21,16 +21,15 @@ export class AuthService {
     return false;
   }
 
-  getUsername() {
+  getName() {
     const access_token = sessionStorage.getItem('access_token');
-    return decoder.decodeToken(access_token).sub;
+    return decoder.decodeToken(access_token).name;
   }
 
   login(user: User) {
     if (user.username !== '' && user.password !== '') {
       return this.rest.signIn(user).subscribe((data: {}) => {
           sessionStorage.setItem('access_token', data.token);
-          this.getUsername();
           this.router.navigate(['/']);
         },
         error => {

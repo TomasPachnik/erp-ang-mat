@@ -15,10 +15,10 @@ import {Router} from '@angular/router';
   ]
 })
 export class HeaderComponent {
-  username = '';
+  name = '';
 
   constructor(private authService: AuthService, private router: Router) {
-    this.username = authService.getUsername();
+    this.name = authService.getName();
   }
 
   userSettings() {
