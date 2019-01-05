@@ -1,0 +1,48 @@
+<div class="moved-down">
+  <mat-card class="content-card">
+    <mat-card-title>Customer detail</mat-card-title>
+    <mat-card-content>
+
+      <form [formGroup]="customerDetailsForm" (ngSubmit)="onSubmitCustomerDetailsForm(customerDetailsForm.value)">
+        <div class="form-container">
+          <mat-form-field>
+            <input matInput placeholder="Name" formControlName="name" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Company identification number" formControlName="companyIdentificationNumber"
+                   required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Tax identification number" formControlName="taxIdentificationNumber" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Street" formControlName="street" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="House number" formControlName="houseNumber" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Postal code" formControlName="postalCode" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Town" formControlName="town" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Country" formControlName="country" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Bank name" formControlName="bankName" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="IBAN" formControlName="iban" required>
+          </mat-form-field>
+
+          <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
+                  [disabled]="!customerDetailsForm.valid">Submit
+          </button>
+        </div>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>

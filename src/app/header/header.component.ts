@@ -11,9 +11,6 @@ import {Router} from "@angular/router";
         height: 35px;
         vertical-align: middle;
     }
-    .fill-remaining-space {
-      flex: 1 1 auto;
-    }
     `
   ]
 })

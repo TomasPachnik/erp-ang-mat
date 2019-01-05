@@ -9,6 +9,7 @@ import {UserSettingsComponent} from './user/user-settings/user-settings.componen
 import {CustomersComponent} from './customer/customers/customers.component';
 import {SuppliersComponent} from './supplier/suppliers/suppliers.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,8 @@ const routes: Routes = [
       {path: '', component: HomePageComponent},
       {path: 'user/settings', component: UserSettingsComponent},
       {path: 'customers', component: CustomersComponent},
+      {path: 'customers/:uuid', component: CustomerDetailComponent},
+      {path: 'customers/new-customer', component: CustomerDetailComponent},
       {path: 'suppliers', component: SuppliersComponent},
       {path: '404', component: NotFoundComponent}
     ]

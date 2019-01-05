@@ -24,7 +24,7 @@ const ELEMENT_DATA: Customer[] = [
 })
 export class CustomersComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'companyIdentificationNumber', 'taxIdentificationNumber', 'town'];
+  displayedColumns: string[] = ['name', 'companyIdentificationNumber', 'taxIdentificationNumber', 'town', 'actions'];
   dataSource = new MatTableDataSource<Customer>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -36,8 +36,19 @@ export class CustomersComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  selectRow(customer) {
-    this.router.navigate(['/customers/customer-detail/' + customer.uuid]);
+  onEdit(customer) {
+    console.log(customer);
   }
 
+  onDelete(customer) {
+    console.log(customer);
+  }
+
+  selectRow(customer) {
+    this.router.navigate(['/customers/' + customer.uuid]);
+  }
+
+  newEntry() {
+    this.router.navigate(['/customers/new-customer']);
+  }
 }

@@ -8,5 +8,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .mat-row:hover {
   background-color: whitesmoke;
+}
+
+.table-link{
   cursor: pointer;
+}
+
+.content-card{
+  max-width: 1200px;
+  margin: auto;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.new-entry{
+  float: right;
+  bottom: 30px;
+  right: 60px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+.small-button{
+  max-width: 100px;
 }

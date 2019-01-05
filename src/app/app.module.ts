@@ -25,7 +25,8 @@ import {
   MatSortModule,
   MatSnackBarModule,
   MatCheckboxModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTooltipModule
 } from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import {HomePageComponent} from './home-page/home-page.component';
@@ -35,8 +36,9 @@ import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
 import {LoginLayoutComponent} from './layouts/login-layout/login-layout.component';
 import {UserSettingsComponent} from './user/user-settings/user-settings.component';
 import {CustomersComponent} from './customer/customers/customers.component';
-import { SuppliersComponent } from './supplier/suppliers/suppliers.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import {SuppliersComponent} from './supplier/suppliers/suppliers.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -56,7 +58,8 @@ const appRoutes: Routes = [
     UserSettingsComponent,
     CustomersComponent,
     SuppliersComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CustomerDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,8 @@ const appRoutes: Routes = [
     MatSortModule,
     MatSnackBarModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   exports: [
     MatToolbarModule,
@@ -94,7 +98,8 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatSnackBarModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
