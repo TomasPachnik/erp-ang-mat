@@ -104,5 +104,12 @@ export class RestService {
     );
   }
 
+  getUserByToken(): Observable<any> {
+    return this.http.get(endpoint() + 'users/getByToken').pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
 
 }

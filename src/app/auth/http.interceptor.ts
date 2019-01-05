@@ -29,7 +29,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
       }, error => {
         if (error instanceof HttpErrorResponse) {
           if (error.status === 401 || error.status === 403) {
-            localStorage.clear();
+            sessionStorage.clear();
             this.router.navigate(['/']);
           }
           if (error.status === 404) {

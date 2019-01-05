@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {FormBuilder} from '@angular/forms';
 import {ErrorStateMatcher, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material';
+import {RestService} from '../../rest.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -37,14 +38,20 @@ export class UserSettingsComponent implements OnInit {
     username: [{value: '', disabled: true}, Validators.required],
     name: ['', Validators.required],
     email: ['', Validators.required],
-    phone: ['', Validators.required],
-    active: ['', Validators.required],
+    phone: [''],
   });
 
-  constructor(private fb: FormBuilder, public snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, public snackBar: MatSnackBar, private rest: RestService) {
   }
 
   ngOnInit() {
+    this.getUserByToken();
+  }
+
+  getUserByToken() {
+    this.rest.getUserByToken().subscribe((data: {}) => {
+      this.mapFromUser(data);
+    });
   }
 
   onSubmitUserPasswordForm(data) {
@@ -54,7 +61,7 @@ export class UserSettingsComponent implements OnInit {
 
   onSubmitUserDetailsForm(data) {
     console.log(data);
-    this.openSnackBar('Sprava', 'OK');
+    this.openSnackBar('dopln serverovu metodu na ulozenie pouzivatela!!!', 'OK');
   }
 
   openSnackBar(message: string, action: string) {
@@ -65,11 +72,17 @@ export class UserSettingsComponent implements OnInit {
     });
   }
 
-  checkPasswords(group: FormGroup) { // here we have the 'passwords' group
+  checkPasswords(group: FormGroup) {
     const pass = group.controls.passwordNew.value;
     const confirmPass = group.controls.passwordNewAgain.value;
 
     return pass === confirmPass ? null : {notSame: true};
   }
 
+  private mapFromUser(data: {}) {
+    this.userDetailsForm.controls['username'].setValue(data.login);
+    this.userDetailsForm.controls['name'].setValue(data.name);
+    this.userDetailsForm.controls['email'].setValue(data.email);
+    this.userDetailsForm.controls['phone'].setValue(data.phone);
+  }
 }
