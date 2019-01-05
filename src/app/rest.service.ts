@@ -69,4 +69,32 @@ export class RestService {
     );
   }
 
+  getSuppliers(): Observable<any> {
+    return this.http.get(endpoint() + 'suppliers/').pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  getSupplier(uuid): Observable<any> {
+    return this.http.get(endpoint() + 'suppliers/get/' + uuid).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  updateSupplier(supplier): Observable<any> {
+    return this.http.post(endpoint() + 'suppliers/save', JSON.stringify(supplier), httpOptions).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  removeSupplier(uuid): Observable<any> {
+    return this.http.get(endpoint() + 'suppliers/remove/' + uuid).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
 }

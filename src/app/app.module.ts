@@ -42,6 +42,7 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
 import {RestService} from './rest.service';
 import {MyHttpInterceptor} from './auth/http.interceptor';
+import { SupplierDetailComponent } from './supplier/supplier-detail/supplier-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
     CustomersComponent,
     SuppliersComponent,
     NotFoundComponent,
-    CustomerDetailComponent
+    CustomerDetailComponent,
+    SupplierDetailComponent
   ],
   imports: [
     BrowserModule,

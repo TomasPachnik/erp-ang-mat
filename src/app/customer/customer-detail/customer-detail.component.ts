@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {RestService} from '../../rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Address, BankAccount, Customer} from '../customers/customers.component';
+import {Customer} from '../customers/customers.component';
 
 @Component({
   selector: 'app-customer-detail',

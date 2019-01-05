@@ -10,6 +10,7 @@ import {CustomersComponent} from './customer/customers/customers.component';
 import {SuppliersComponent} from './supplier/suppliers/suppliers.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
+import {SupplierDetailComponent} from './supplier/supplier-detail/supplier-detail.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,8 @@ const routes: Routes = [
       {path: 'customers/:uuid', component: CustomerDetailComponent},
       {path: 'customers/new-customer', component: CustomerDetailComponent},
       {path: 'suppliers', component: SuppliersComponent},
+      {path: 'suppliers/:uuid', component: SupplierDetailComponent},
+      {path: 'suppliers/new-supplier', component: SupplierDetailComponent},
       {path: '404', component: NotFoundComponent}
     ]
   },
