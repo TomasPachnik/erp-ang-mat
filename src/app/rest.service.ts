@@ -97,4 +97,12 @@ export class RestService {
     );
   }
 
+  getUsers(): Observable<any> {
+    return this.http.get(endpoint() + 'users/').pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+
 }

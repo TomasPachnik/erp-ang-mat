@@ -43,6 +43,8 @@ import {CustomerDetailComponent} from './customer/customer-detail/customer-detai
 import {RestService} from './rest.service';
 import {MyHttpInterceptor} from './auth/http.interceptor';
 import { SupplierDetailComponent } from './supplier/supplier-detail/supplier-detail.component';
+import { UsersComponent } from './user/users/users.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -64,7 +66,9 @@ const appRoutes: Routes = [
     SuppliersComponent,
     NotFoundComponent,
     CustomerDetailComponent,
-    SupplierDetailComponent
+    SupplierDetailComponent,
+    UsersComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
