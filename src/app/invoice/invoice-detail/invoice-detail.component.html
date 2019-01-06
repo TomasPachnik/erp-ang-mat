@@ -1,3 +1,58 @@
-<p>
-  invoice-detail works!
-</p>
+<div class="moved-down">
+  <mat-card class="content-card">
+    <mat-card-title>Invoice detail</mat-card-title>
+    <mat-card-content>
+
+      <form [formGroup]="invoiceDetailsForm" (ngSubmit)="onSubmitInvoiceDetailsForm(invoiceDetailsForm.value)">
+        <div class="form-container">
+          <mat-form-field>
+            <input matInput placeholder="Name" formControlName="name" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Invoice number" formControlName="invoiceNumber" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Variable symbol" formControlName="supplierVariableSymbol" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Currency" formControlName="currency" required>
+              <mat-option value="€">€</mat-option>
+              <mat-option value="$">$</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Customer" formControlName="customer">
+              <mat-option *ngFor="let customer of customers" [value]="customer.uuid">
+                {{customer.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Supplier" formControlName="supplier">
+              <mat-option *ngFor="let supplier of suppliers" [value]="supplier.uuid">
+                {{supplier.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Date of issue" formControlName="dateOfIssue" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Delivery date" formControlName="deliveryDate" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Due date" formControlName="dueDate" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Note" formControlName="note">
+          </mat-form-field>
+
+          <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
+                  [disabled]="!invoiceDetailsForm.valid">Submit
+          </button>
+        </div>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>

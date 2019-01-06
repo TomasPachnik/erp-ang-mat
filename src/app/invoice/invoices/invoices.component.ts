@@ -29,7 +29,6 @@ export class InvoicesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-
   constructor(private router: Router, private rest: RestService) {
   }
 
@@ -51,5 +50,13 @@ export class InvoicesComponent implements OnInit {
       const filename = invoice.name + '.pdf';
       FileSaver.saveAs(file, filename);
     });
+  }
+
+  onEdit(invoice) {
+    this.router.navigate(['/invoices/' + invoice.uuid]);
+  }
+
+  newEntry() {
+    this.router.navigate(['/invoices/new-invoice']);
   }
 }

@@ -153,6 +153,14 @@ export class RestService {
     );
   }
 
+  getInvoice(uuid): Observable<any> {
+    return this.http.get(endpoint() + 'invoices/get/' + uuid).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+
   generateInvoice(uuid): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Accept', 'application/pdf');
