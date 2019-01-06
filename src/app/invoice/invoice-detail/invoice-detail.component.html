@@ -21,27 +21,33 @@
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <mat-select placeholder="Customer" formControlName="customer">
+            <mat-select placeholder="Customer" formControlName="customer" required>
               <mat-option *ngFor="let customer of customers" [value]="customer.uuid">
                 {{customer.name}}
               </mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <mat-select placeholder="Supplier" formControlName="supplier">
+            <mat-select placeholder="Supplier" formControlName="supplier" required>
               <mat-option *ngFor="let supplier of suppliers" [value]="supplier.uuid">
                 {{supplier.name}}
               </mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Date of issue" formControlName="dateOfIssue" required>
+            <input matInput [matDatepicker]="dp1" placeholder="Date of issue" formControlName="dateOfIssue" required>
+            <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+            <mat-datepicker #dp1></mat-datepicker>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Delivery date" formControlName="deliveryDate" required>
+            <input matInput [matDatepicker]="dp2" placeholder="Delivery date" formControlName="deliveryDate" required>
+            <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+            <mat-datepicker #dp2></mat-datepicker>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Due date" formControlName="dueDate" required>
+            <input matInput [matDatepicker]="dp3" placeholder="Due date" formControlName="dueDate" required>
+            <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+            <mat-datepicker #dp3></mat-datepicker>
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="Note" formControlName="note">

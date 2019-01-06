@@ -29,7 +29,8 @@ import {
   MatSnackBarModule,
   MatCheckboxModule,
   MatSelectModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatDatepickerModule, MatNativeDateModule, NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS,
 } from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import {HomePageComponent} from './home-page/home-page.component';
@@ -47,13 +48,42 @@ import {MyHttpInterceptor} from './auth/http.interceptor';
 import {SupplierDetailComponent} from './supplier/supplier-detail/supplier-detail.component';
 import {UsersComponent} from './user/users/users.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
-import { InvoicesComponent } from './invoice/invoices/invoices.component';
-import { InvoiceDetailComponent } from './invoice/invoice-detail/invoice-detail.component';
+import {InvoicesComponent} from './invoice/invoices/invoices.component';
+import {InvoiceDetailComponent} from './invoice/invoice-detail/invoice-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent}
 ];
+
+const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: {month: 'short', year: 'numeric', day: 'numeric'}
+  },
+  display: {
+    dateInput: 'input',
+    monthYearLabel: {year: 'numeric', month: 'short'},
+    dateA11yLabel: {year: 'numeric', month: 'long', day: 'numeric'},
+    monthYearA11yLabel: {year: 'numeric', month: 'long'},
+  }
+};
+
+export class MyDateAdapter extends NativeDateAdapter {
+  format(date: Date, displayFormat: Object): string {
+    if (displayFormat === 'input') {
+      const day = date.getDate();
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      return this._to2digit(day) + '.' + this._to2digit(month) + '.' + year;
+    } else {
+      return date.toDateString();
+    }
+  }
+
+  private _to2digit(n: number) {
+    return ('00' + n).slice(-2);
+  }
+}
 
 @NgModule({
   declarations: [
@@ -104,7 +134,9 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatTooltipModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatToolbarModule,
@@ -117,9 +149,12 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatSelectModule,
     MatTooltipModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule
   ],
-  providers: [AuthService, AuthGuard, AdminGuard, RestService,
+  providers: [AuthService, AuthGuard, AdminGuard, RestService, MatDatepickerModule,
+    {provide: DateAdapter, useClass: MyDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS},
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MyHttpInterceptor,

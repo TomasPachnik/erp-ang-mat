@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {RestService} from '../../rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -18,10 +18,10 @@ export class InvoiceDetailComponent implements OnInit {
     currency: ['', Validators.required],
     customer: ['', Validators.required],
     supplier: ['', Validators.required],
-    dateOfIssue: ['', Validators.required],
+    dateOfIssue: [new Date(), Validators.required],
     deliveryDate: ['', Validators.required],
     dueDate: ['', Validators.required],
-    note: ['', Validators.required]
+    note: ['']
   });
 
   customers: any = [];
@@ -65,13 +65,15 @@ export class InvoiceDetailComponent implements OnInit {
     this.invoiceDetailsForm.controls['currency'].setValue(data.currency);
     this.invoiceDetailsForm.controls['customer'].setValue(data.customer.uuid);
     this.invoiceDetailsForm.controls['supplier'].setValue(data.supplier.uuid);
-    this.invoiceDetailsForm.controls['dateOfIssue'].setValue(data.dateOfIssue);
-    this.invoiceDetailsForm.controls['deliveryDate'].setValue(data.deliveryDate);
-    this.invoiceDetailsForm.controls['dueDate'].setValue(data.dueDate);
+    this.invoiceDetailsForm.controls['dateOfIssue'].setValue(new Date(data.dateOfIssue));
+    this.invoiceDetailsForm.controls['deliveryDate'].setValue(new Date(data.deliveryDate));
+    this.invoiceDetailsForm.controls['dueDate'].setValue(new Date(data.dueDate));
     this.invoiceDetailsForm.controls['note'].setValue(data.note);
   }
 
   onSubmitInvoiceDetailsForm(invoice) {
-    console.log(invoice);
+    this.rest.updateInvoice(this.invoiceDetailsForm.getRawValue()).subscribe(() => {
+      this.router.navigate(['invoices']);
+    });
   }
 }
