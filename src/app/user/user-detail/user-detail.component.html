@@ -1,6 +1,39 @@
-<p>
-  user-detail works!
-</p>
+<div class="moved-down">
+  <mat-card class="content-card">
+    <mat-card-title>User detail</mat-card-title>
+    <mat-card-content>
+
+      <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitUserDetailsForm(userDetailsForm.value)">
+        <div class="form-container">
+          <mat-form-field>
+            <input matInput placeholder="Username" formControlName="username" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Full name" formControlName="name"
+                   required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Phone" formControlName="phone">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Enabled" formControlName="enabled" required>
+              <mat-option value="true">Yes</mat-option>
+              <mat-option value="false">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
+                  [disabled]="!userDetailsForm.valid">Submit
+          </button>
+        </div>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>
 
 <!--
 <mat-form-field>

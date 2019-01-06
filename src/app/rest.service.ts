@@ -104,6 +104,13 @@ export class RestService {
     );
   }
 
+  getUser(uuid): Observable<any> {
+    return this.http.get(endpoint() + 'users/get/' + uuid).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
   getUserByToken(): Observable<any> {
     return this.http.get(endpoint() + 'users/getByToken').pipe(
       tap(_ => map(this.extractData)),
@@ -113,6 +120,13 @@ export class RestService {
 
   updateUser(user): Observable<any> {
     return this.http.post(endpoint() + 'users/save', JSON.stringify(user), httpOptions).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  removeUser(uuid): Observable<any> {
+    return this.http.get(endpoint() + 'users/remove/' + uuid).pipe(
       tap(_ => map(this.extractData)),
       catchError(this.handleError)
     );

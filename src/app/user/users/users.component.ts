@@ -42,4 +42,20 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  newEntry() {
+    this.router.navigate(['/users/new-user']);
+  }
+
+  onEdit(user) {
+    this.router.navigate(['/users/' + user.uuid]);
+  }
+
+  onDelete(user) {
+    if (confirm('Ste si istý?')) {
+      this.rest.removeUser(user.uuid).subscribe((data: {}) => {
+        this.getUsers();
+      });
+    }
+  }
+
 }

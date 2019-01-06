@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavComponent} from './nav/nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
+import { FormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {
   MatToolbarModule,
@@ -42,9 +43,9 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {CustomerDetailComponent} from './customer/customer-detail/customer-detail.component';
 import {RestService} from './rest.service';
 import {MyHttpInterceptor} from './auth/http.interceptor';
-import { SupplierDetailComponent } from './supplier/supplier-detail/supplier-detail.component';
-import { UsersComponent } from './user/users/users.component';
-import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import {SupplierDetailComponent} from './supplier/supplier-detail/supplier-detail.component';
+import {UsersComponent} from './user/users/users.component';
+import {UserDetailComponent} from './user/user-detail/user-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -97,7 +98,8 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatSelectModule,
     MatTooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [
     MatToolbarModule,
@@ -109,7 +111,8 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule
   ],
   providers: [AuthService, AuthGuard, RestService,
     {
