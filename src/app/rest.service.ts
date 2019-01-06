@@ -146,5 +146,12 @@ export class RestService {
     );
   }
 
+  getInvoices(): Observable<any> {
+    return this.http.get(endpoint() + 'invoices/').pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
 
 }

@@ -1,20 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
 
-.moved-down{
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+table {
+  width: 100%;
+}
+
+.moved-down {
   padding: 60px;
 }
+
 .mat-row:hover {
   background-color: whitesmoke;
 }
 
-.table-link{
+.table-link {
   cursor: pointer;
 }
 
-.content-card{
+.content-card {
   max-width: 600px;
   margin: auto;
 }
@@ -23,7 +34,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   flex: 1 1 auto;
 }
 
-.new-entry{
+.new-entry {
   float: right;
   bottom: 30px;
   right: 60px;
@@ -38,6 +49,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 100%;
 }
 
-.small-button{
+.small-button {
   max-width: 100px;
 }

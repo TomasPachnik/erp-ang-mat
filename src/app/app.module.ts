@@ -47,6 +47,8 @@ import {MyHttpInterceptor} from './auth/http.interceptor';
 import {SupplierDetailComponent} from './supplier/supplier-detail/supplier-detail.component';
 import {UsersComponent} from './user/users/users.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
+import { InvoicesComponent } from './invoice/invoices/invoices.component';
+import { InvoiceDetailComponent } from './invoice/invoice-detail/invoice-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -70,7 +72,9 @@ const appRoutes: Routes = [
     CustomerDetailComponent,
     SupplierDetailComponent,
     UsersComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    InvoicesComponent,
+    InvoiceDetailComponent
   ],
   imports: [
     BrowserModule,

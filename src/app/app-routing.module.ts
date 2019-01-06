@@ -14,6 +14,8 @@ import {SupplierDetailComponent} from './supplier/supplier-detail/supplier-detai
 import {UsersComponent} from './user/users/users.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {AdminGuard} from './auth/admin.guard';
+import {InvoicesComponent} from './invoice/invoices/invoices.component';
+import {InvoiceDetailComponent} from './invoice/invoice-detail/invoice-detail.component';
 
 const routes: Routes = [
   {
@@ -29,6 +31,9 @@ const routes: Routes = [
       {path: 'suppliers', component: SuppliersComponent},
       {path: 'suppliers/:uuid', component: SupplierDetailComponent},
       {path: 'suppliers/new-supplier', component: SupplierDetailComponent},
+      {path: 'invoices', component: InvoicesComponent},
+      {path: 'invoices/:uuid', component: InvoiceDetailComponent},
+      {path: 'invoices/new-invoice', component: InvoiceDetailComponent},
       {path: '404', component: NotFoundComponent}
     ]
   },
