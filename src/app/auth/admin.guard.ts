@@ -4,13 +4,13 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '
 import {AuthService} from './auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.authService.isLoggedIn() === true) {
+    if (this.authService.hasRoleAdmin() === true) {
       return true;
     } else {
       this.authService.logout();

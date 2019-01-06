@@ -8,7 +8,7 @@
       <a mat-list-item routerLink="/">Home page</a>
       <a mat-list-item routerLink="/customers">Customers</a>
       <a mat-list-item routerLink="/suppliers">Suppliers</a>
-      <a mat-list-item routerLink="/users">Users</a>
+      <a *ngIf="hasAdminRole()" mat-list-item routerLink="/users">Users</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

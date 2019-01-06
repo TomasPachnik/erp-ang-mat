@@ -12,6 +12,14 @@ export class AuthService {
   constructor(private router: Router, private rest: RestService) {
   }
 
+  hasRoleAdmin() {
+    if (this.isLoggedIn()) {
+      const access_token = sessionStorage.getItem('access_token');
+      const tokenPayload = decoder.decodeToken(access_token);
+      return tokenPayload.roles.indexOf('ROLE_ADMIN') > -1;
+    }
+  }
+
   isLoggedIn() {
     const token = sessionStorage.getItem('access_token');
     if (token !== null) {

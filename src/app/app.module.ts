@@ -2,13 +2,14 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard} from './auth/auth.guard';
+import {AdminGuard} from './auth/admin.guard';
 import {AuthService} from './auth/auth.service';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavComponent} from './nav/nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {
   MatToolbarModule,
@@ -114,7 +115,7 @@ const appRoutes: Routes = [
     MatTooltipModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuard, RestService,
+  providers: [AuthService, AuthGuard, AdminGuard, RestService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MyHttpInterceptor,

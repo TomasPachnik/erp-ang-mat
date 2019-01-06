@@ -13,6 +13,7 @@ import {CustomerDetailComponent} from './customer/customer-detail/customer-detai
 import {SupplierDetailComponent} from './supplier/supplier-detail/supplier-detail.component';
 import {UsersComponent} from './user/users/users.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
+import {AdminGuard} from './auth/admin.guard';
 
 const routes: Routes = [
   {
@@ -28,6 +29,14 @@ const routes: Routes = [
       {path: 'suppliers', component: SuppliersComponent},
       {path: 'suppliers/:uuid', component: SupplierDetailComponent},
       {path: 'suppliers/new-supplier', component: SupplierDetailComponent},
+      {path: '404', component: NotFoundComponent}
+    ]
+  },
+  {
+    path: '',
+    component: HomeLayoutComponent,
+    canActivate: [AdminGuard],
+    children: [
       {path: 'users', component: UsersComponent},
       {path: 'users/:uuid', component: UserDetailComponent},
       {path: 'users/new-user', component: UserDetailComponent},
