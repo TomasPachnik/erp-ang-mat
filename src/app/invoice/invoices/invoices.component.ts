@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {Router} from '@angular/router';
 import {RestService} from '../../rest.service';
+import * as FileSaver from 'file-saver';
 
 export class Invoice {
   uuid: string;
@@ -42,6 +43,13 @@ export class InvoicesComponent implements OnInit {
       console.log(data);
       // @ts-ignore
       this.dataSource = new MatTableDataSource<Invoice>(data);
+    });
+  }
+
+  onPdf(invoice) {
+    this.rest.generateInvoice(invoice.uuid).subscribe((file: Blob) => {
+      const filename = 'faktura.pdf';
+      FileSaver.saveAs(file, filename);
     });
   }
 }
