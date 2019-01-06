@@ -111,5 +111,26 @@ export class RestService {
     );
   }
 
+  updateUser(user): Observable<any> {
+    return this.http.post(endpoint() + 'users/save', JSON.stringify(user), httpOptions).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  updateCurrentUser(user): Observable<any> {
+    return this.http.post(endpoint() + 'users/saveCurrent', JSON.stringify(user), httpOptions).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  changePassword(password): Observable<any> {
+    return this.http.post(endpoint() + 'users/changePassword', JSON.stringify(password), httpOptions).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
 
 }
