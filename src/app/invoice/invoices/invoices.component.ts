@@ -48,7 +48,7 @@ export class InvoicesComponent implements OnInit {
 
   onPdf(invoice) {
     this.rest.generateInvoice(invoice.uuid).subscribe((file: Blob) => {
-      const filename = 'faktura.pdf';
+      const filename = invoice.name + '.pdf';
       FileSaver.saveAs(file, filename);
     });
   }
