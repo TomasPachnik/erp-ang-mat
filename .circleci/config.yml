@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - setup_remote_docker
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn ng -- build --prod --aot --no-progress
+      - run: docker build -f Dockerfile -t $DOCKER_HUB_USER/$DOCKER_HUB_PROJECT:latest .
+      - deploy:
+          command:  |
+            docker login -u $DOCKER_HUB_USER -p $DOCKERHUB_PASS
+            docker tag $DOCKER_HUB_USER/$DOCKER_HUB_PROJECT $DOCKER_HUB_USER/$DOCKER_HUB_PROJECT:latest
+            docker push $DOCKER_HUB_USER/$DOCKER_HUB_PROJECT:latest
