@@ -8,9 +8,11 @@ export class Invoice {
   uuid: string;
   name: string;
   invoiceNumber: string;
-  customer: Date;
+  supplier: string;
+  customer: string;
   dateOfIssue: Date;
-  dueDate: string;
+  deliveryDate: Date;
+  dueDate: Date;
   price: string;
   issuer: string;
 }
@@ -24,7 +26,7 @@ const ELEMENT_DATA: Invoice[] = [];
 })
 export class InvoicesComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'number', 'customer', 'dateOfIssue', 'dueDate', 'price', 'issuer', 'actions'];
+  displayedColumns: string[] = ['name', 'supplier', 'customer', 'dateOfIssue', 'deliveryDate', 'dueDate', 'price', 'actions'];
   dataSource = new MatTableDataSource<Invoice>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
