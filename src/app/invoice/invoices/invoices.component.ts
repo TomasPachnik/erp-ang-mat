@@ -39,7 +39,6 @@ export class InvoicesComponent implements OnInit {
 
   getInvoices() {
     this.rest.getInvoices().subscribe((data: {}) => {
-      console.log(data);
       // @ts-ignore
       this.dataSource = new MatTableDataSource<Invoice>(data);
     });
@@ -58,5 +57,13 @@ export class InvoicesComponent implements OnInit {
 
   newEntry() {
     this.router.navigate(['/invoices/new-invoice']);
+  }
+
+  onDelete(invoice) {
+    if (confirm('Ste si istý?')) {
+      this.rest.removeInvoice(invoice.uuid).subscribe((data: {}) => {
+        this.getInvoices();
+      });
+    }
   }
 }

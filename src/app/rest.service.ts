@@ -6,7 +6,7 @@ import {Observable, throwError} from 'rxjs';
 
 const endpoint = (() => {
   if (environment.production) {
-    return 'http://ec2-3-16-158-12.us-east-2.compute.amazonaws.com:5554/';
+    return 'https://192.168.2.201:8443/';
   } else {
     return 'https://localhost:8443/';
   }
@@ -159,6 +159,14 @@ export class RestService {
       catchError(this.handleError)
     );
   }
+
+  removeInvoice(uuid): Observable<any> {
+    return this.http.get(endpoint() + 'invoices/remove/' + uuid).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
 
   updateInvoice(invoice): Observable<any> {
     return this.http.post(endpoint() + 'invoices/save', JSON.stringify(invoice), httpOptions).pipe(

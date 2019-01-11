@@ -52,7 +52,6 @@ export class InvoiceDetailComponent implements OnInit {
 
   getInvoiceDetail() {
     this.rest.getInvoice(this.route.snapshot.params['uuid']).subscribe((data: {}) => {
-      console.log(data);
       this.mapFromInvoice(data);
     });
   }
