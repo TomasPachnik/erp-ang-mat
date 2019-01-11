@@ -75,8 +75,10 @@ export class UserDetailComponent implements OnInit {
     this.userDetailsForm.controls['username'].setValue(input.login);
     if (input.login === 'admin') {
       this.userDetailsForm.controls['username'].disable();
+      this.userDetailsForm.controls['enabled'].disable();
     } else {
       this.userDetailsForm.controls['username'].enable();
+      this.userDetailsForm.controls['enabled'].enable();
     }
     this.userDetailsForm.controls['name'].setValue(input.name);
     this.userDetailsForm.controls['email'].setValue(input.email);
