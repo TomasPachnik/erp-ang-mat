@@ -3,7 +3,7 @@
     <mat-card-title>Invoice detail</mat-card-title>
     <mat-card-content>
 
-      <form [formGroup]="invoiceDetailsForm" (ngSubmit)="onSubmitInvoiceDetailsForm(invoiceDetailsForm.value)">
+      <form [formGroup]="invoiceDetailsForm" (ngSubmit)="onSubmitInvoiceDetailsForm()">
         <div class="form-container">
           <mat-form-field>
             <input matInput placeholder="Name" formControlName="name" required>
@@ -52,6 +52,31 @@
           <mat-form-field>
             <input matInput placeholder="Note" formControlName="note">
           </mat-form-field>
+          <h3>Assets</h3>
+          <div class="form-container" *ngFor="let asset of assetForm.get('items').controls; let i=index"
+               [formGroup]="asset">
+
+            <mat-form-field>
+              <input [attr.id]="'name'+i" matInput placeholder="Name" formControlName="name" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input [attr.id]="'count'+i" matInput placeholder="Count" formControlName="count" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input [attr.id]="'unit'+i" matInput placeholder="Unit" formControlName="unit" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input [attr.id]="'unitPrice'+i" matInput placeholder="Unit Price" formControlName="unitPrice" required>
+            </mat-form-field>
+            <div>
+              <button class="btn small-button" mat-stroked-button color="warn" type="button"
+                      (click)="assetForm.get('items').removeAt(i)">Remove
+              </button>
+            </div>
+          </div>
+          <button type="button" class="btn small-button"
+                  (click)="assetForm.get('items').push(buildItem('', 0, '', 0))">Add another asset
+          </button>
 
           <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
                   [disabled]="!invoiceDetailsForm.valid">Submit

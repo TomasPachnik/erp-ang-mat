@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -21,8 +21,10 @@ export class InvoiceDetailComponent implements OnInit {
     dateOfIssue: [new Date(), Validators.required],
     deliveryDate: ['', Validators.required],
     dueDate: ['', Validators.required],
-    note: ['']
+    note: [''],
   });
+
+  assetForm: FormGroup;
 
   customers: any = [];
   suppliers: any = [];
@@ -36,6 +38,11 @@ export class InvoiceDetailComponent implements OnInit {
     if (this.route.snapshot.params['uuid'] !== 'new-invoice') {
       this.getInvoiceDetail();
     }
+    this.assetForm = this.fb.group({
+      items: this.fb.array([
+        // this.buildItem('zemiaky', 12, 'KG', 13.5),
+      ])
+    });
   }
 
   getCustomers() {
@@ -68,10 +75,25 @@ export class InvoiceDetailComponent implements OnInit {
     this.invoiceDetailsForm.controls['deliveryDate'].setValue(new Date(data.deliveryDate));
     this.invoiceDetailsForm.controls['dueDate'].setValue(new Date(data.dueDate));
     this.invoiceDetailsForm.controls['note'].setValue(data.note);
+    for (const item of data.assets) {
+      // @ts-ignore
+      this.assetForm.get('items').push(this.buildItem(item.name, item.count, item.unit, item.unitPrice));
+    }
   }
 
-  onSubmitInvoiceDetailsForm(invoice) {
-    this.rest.updateInvoice(this.invoiceDetailsForm.getRawValue()).subscribe(() => {
+  buildItem(name: string, count: number, unit: string, unitPrice: number) {
+    return new FormGroup({
+      name: new FormControl(name, Validators.required),
+      count: new FormControl(count, Validators.required),
+      unit: new FormControl(unit, Validators.required),
+      unitPrice: new FormControl(unitPrice, Validators.required),
+    });
+  }
+
+  onSubmitInvoiceDetailsForm() {
+    const invoice = this.invoiceDetailsForm.getRawValue();
+    invoice.assets = this.assetForm.getRawValue().items;
+    this.rest.updateInvoice(invoice).subscribe(() => {
       this.router.navigate(['invoices']);
     });
   }
