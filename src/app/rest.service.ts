@@ -6,7 +6,7 @@ import {Observable, throwError} from 'rxjs';
 
 const endpoint = (() => {
   if (environment.production) {
-    return 'https://192.168.2.201:8443/';
+    return 'http://ec2-3-16-158-12.us-east-2.compute.amazonaws.com:5554/';
   } else {
     return 'https://localhost:8443/';
   }
