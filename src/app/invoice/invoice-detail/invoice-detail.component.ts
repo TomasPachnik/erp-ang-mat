@@ -63,6 +63,10 @@ export class InvoiceDetailComponent implements OnInit {
     });
   }
 
+  get assetsFormData() {
+    return this.assetForm.get('items');
+  }
+
   private mapFromInvoice(data) {
     this.invoiceDetailsForm.controls['uuid'].setValue(data.uuid);
     this.invoiceDetailsForm.controls['name'].setValue(data.name);

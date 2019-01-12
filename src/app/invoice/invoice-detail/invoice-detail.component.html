@@ -53,7 +53,7 @@
             <input matInput placeholder="Note" formControlName="note">
           </mat-form-field>
           <h3>Assets</h3>
-          <div class="form-container" *ngFor="let asset of assetForm.get('items').controls; let i=index"
+          <div class="form-container" *ngFor="let asset of assetsFormData.controls; let i=index"
                [formGroup]="asset">
 
             <mat-form-field>
@@ -75,7 +75,7 @@
             </div>
           </div>
           <button type="button" class="btn small-button"
-                  (click)="assetForm.get('items').push(buildItem('', 0, '', 0))">Add another asset
+                  (click)="assetsFormData.push(buildItem('', 0, '', 0))">Add another asset
           </button>
 
           <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
