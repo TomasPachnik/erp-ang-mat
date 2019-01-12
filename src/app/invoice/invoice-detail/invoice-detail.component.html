@@ -55,7 +55,12 @@
           <h3>Assets</h3>
           <div class="form-container" *ngFor="let asset of assetsFormData.controls; let i=index"
                [formGroup]="asset">
-
+            <div mat-dialog-actions align="end">
+              <button type="button" mat-mini-fab color="warn" matTooltip="Remove asset"
+                      (click)="assetForm.get('items').removeAt(i)">
+                <mat-icon>remove</mat-icon>
+              </button>
+            </div>
             <mat-form-field>
               <input [attr.id]="'name'+i" matInput placeholder="Name" formControlName="name" required>
             </mat-form-field>
@@ -68,16 +73,14 @@
             <mat-form-field>
               <input [attr.id]="'unitPrice'+i" matInput placeholder="Unit Price" formControlName="unitPrice" required>
             </mat-form-field>
-            <div>
-              <button class="btn small-button" mat-stroked-button color="warn" type="button"
-                      (click)="assetForm.get('items').removeAt(i)">Remove
-              </button>
-            </div>
           </div>
-          <button type="button" class="btn small-button"
-                  (click)="assetsFormData.push(buildItem(null, '', 0, '', 0))">Add another asset
-          </button>
-
+          <div mat-dialog-actions align="end">
+            <button type="button" mat-mini-fab color="primary" matTooltip="Add new asset"
+                    (click)="assetsFormData.push(buildItem(null, '', 0, '', 0))">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <br/>
           <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
                   [disabled]="!invoiceDetailsForm.valid">Submit
           </button>
