@@ -39,9 +39,7 @@ export class InvoiceDetailComponent implements OnInit {
       this.getInvoiceDetail();
     }
     this.assetForm = this.fb.group({
-      items: this.fb.array([
-        // this.buildItem('zemiaky', 12, 'KG', 13.5),
-      ])
+      items: this.fb.array([])
     });
   }
 
@@ -81,12 +79,13 @@ export class InvoiceDetailComponent implements OnInit {
     this.invoiceDetailsForm.controls['note'].setValue(data.note);
     for (const item of data.assets) {
       // @ts-ignore
-      this.assetForm.get('items').push(this.buildItem(item.name, item.count, item.unit, item.unitPrice));
+      this.assetForm.get('items').push(this.buildItem(item.uuid, item.name, item.count, item.unit, item.unitPrice));
     }
   }
 
-  buildItem(name: string, count: number, unit: string, unitPrice: number) {
+  buildItem(uuid: string, name: string, count: number, unit: string, unitPrice: number) {
     return new FormGroup({
+      uuid: new FormControl(uuid, Validators.required),
       name: new FormControl(name, Validators.required),
       count: new FormControl(count, Validators.required),
       unit: new FormControl(unit, Validators.required),
