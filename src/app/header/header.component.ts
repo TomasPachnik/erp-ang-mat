@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {AuthService} from './../auth/auth.service';
 import {Router} from '@angular/router';
+import {NavComponent} from '../nav/nav.component';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +17,17 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent {
   name = '';
+  navComponent: NavComponent;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private nav: NavComponent) {
     this.name = authService.getName();
+    this.navComponent = nav;
   }
+
+  toggleNav() {
+    this.navComponent.toggleNav();
+  }
+
 
   userSettings() {
     this.router.navigate(['/user/settings']);

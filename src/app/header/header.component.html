@@ -1,6 +1,11 @@
 <mat-toolbar color="primary">
+  <button type="button" mat-button (click)="toggleNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
   <span class="fill-remaining-space"></span>
-  <button mat-flat-button color="warn" [matMenuTriggerFor]="menu">{{name}}</button>
+  <button mat-flat-button color="accent" [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>&nbsp;<span>{{name}}</span>
+  </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="userSettings()">Settings</button>
     <button mat-menu-item (click)="onLogout()">Logout</button>
