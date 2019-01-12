@@ -15,9 +15,11 @@
         <mat-icon>shopping_cart</mat-icon>&nbsp;<span>Customers</span>
       </a>
       <a mat-list-item routerLink="/suppliers">
-        <mat-icon>supervised_user_circle</mat-icon>&nbsp;<span>Suppliers</span>
+        <mat-icon>how_to_vote</mat-icon>&nbsp;<span>Suppliers</span>
       </a>
-      <a *ngIf="hasAdminRole()" mat-list-item routerLink="/users">Users</a>
+      <a *ngIf="hasAdminRole()" mat-list-item routerLink="/users">
+        <mat-icon>supervised_user_circle</mat-icon>&nbsp;<span>Users</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
