@@ -46,6 +46,23 @@ export class InvoicesComponent implements OnInit {
     });
   }
 
+  getTotalCost() {
+    let result = 0;
+    for (const entry of this.dataSource.data) {
+      // @ts-ignore
+      result += entry.total;
+    }
+    return result;
+  }
+
+  getCurrency() {
+    if (this.dataSource.data.length > 0) {
+      // @ts-ignore
+      return this.dataSource.data[0].currency;
+    }
+    return '';
+  }
+
   onPdf(invoice) {
     this.rest.generateInvoice(invoice.uuid).subscribe((file: Blob) => {
       const filename = invoice.name + '.pdf';
