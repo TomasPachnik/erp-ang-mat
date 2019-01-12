@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {RestService} from '../../rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -64,7 +64,7 @@ export class InvoiceDetailComponent implements OnInit {
   }
 
   get assetsFormData() {
-    return this.assetForm.get('items');
+    return <FormArray>this.assetForm.get('items');
   }
 
   private mapFromInvoice(data) {
