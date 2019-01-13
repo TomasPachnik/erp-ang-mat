@@ -12,6 +12,16 @@ const endpoint = (() => {
   }
 });
 
+export class Paging {
+  pageIndex: number;
+  pageSize: number;
+
+  constructor(pageIndex: number, pageSize: number) {
+    this.pageIndex = pageIndex;
+    this.pageSize = pageSize;
+  }
+}
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -148,6 +158,13 @@ export class RestService {
 
   getInvoices(): Observable<any> {
     return this.http.get(endpoint() + 'invoices/').pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  getInvoicesWithPagination(pageIndex, pageSize): Observable<any> {
+    return this.http.post(endpoint() + 'invoices/all', JSON.stringify(new Paging(pageIndex, pageSize)), httpOptions).pipe(
       tap(_ => map(this.extractData)),
       catchError(this.handleError)
     );

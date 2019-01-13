@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatTableDataSource, PageEvent} from '@angular/material';
 import {Router} from '@angular/router';
 import {RestService} from '../../rest.service';
 import * as FileSaver from 'file-saver';
@@ -28,6 +28,7 @@ export class InvoicesComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'supplier', 'customer', 'dateOfIssue', 'deliveryDate', 'dueDate', 'price', 'actions'];
   dataSource = new MatTableDataSource<Invoice>(ELEMENT_DATA);
+  defaultPageSize = 10;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -36,15 +37,9 @@ export class InvoicesComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-    this.getInvoices();
+    this.getInvoices(this.paginator.pageIndex, this.defaultPageSize);
   }
 
-  getInvoices() {
-    this.rest.getInvoices().subscribe((data: {}) => {
-      // @ts-ignore
-      this.dataSource = new MatTableDataSource<Invoice>(data);
-    });
-  }
 
   getTotalCost() {
     let result = 0;
@@ -81,8 +76,22 @@ export class InvoicesComponent implements OnInit {
   onDelete(invoice) {
     if (confirm('Ste si istý?')) {
       this.rest.removeInvoice(invoice.uuid).subscribe((data: {}) => {
-        this.getInvoices();
+        this.getInvoices(this.paginator.pageIndex, this.paginator.pageSize);
       });
     }
   }
+
+  handlePage(event: PageEvent) {
+    this.getInvoices(event.pageIndex, event.pageSize);
+  }
+
+  getInvoices(pageIndex, pageSize) {
+    this.rest.getInvoicesWithPagination(pageIndex, pageSize).subscribe(data => {
+      this.dataSource = new MatTableDataSource<Invoice>(data.content);
+      this.paginator.pageIndex = data.pageable.pageIndex;
+      this.paginator.pageSize = data.pageable.pageSize;
+      this.paginator.length = data.total;
+    });
+  }
+
 }
