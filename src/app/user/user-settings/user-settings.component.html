@@ -1,4 +1,4 @@
-<div class="moved-down">
+<div class="moved-down" xmlns="http://www.w3.org/1999/html">
   <mat-card class="content-card">
     <mat-card-title>User Settings</mat-card-title>
     <mat-card-content>
@@ -11,11 +11,16 @@
               <mat-form-field>
                 <input matInput placeholder="Username" formControlName="username" required></mat-form-field>
               <mat-form-field>
-                <input matInput placeholder="Full name" formControlName="name" required></mat-form-field>
+                <input matInput placeholder="Full name" #name formControlName="name" required maxlength="30">
+                <mat-hint align="end">{{name.value.length}} / 30</mat-hint>
+              </mat-form-field>
               <mat-form-field>
-                <input matInput placeholder="Email" formControlName="email" required></mat-form-field>
+                <input matInput placeholder="Email" #email formControlName="email" required maxlength="60">
+                <mat-hint align="end">{{email.value.length}} / 60</mat-hint>
+              </mat-form-field>
               <mat-form-field>
-                <input matInput placeholder="Phone" formControlName="phone">
+                <input matInput placeholder="Phone" #phone formControlName="phone" maxlength="30">
+                <mat-hint align="end">{{phone.value.length}} / 30</mat-hint>
               </mat-form-field>
               <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
                       [disabled]="!userDetailsForm.valid">Submit

@@ -58,9 +58,9 @@ export class UserSettingsComponent implements OnInit {
 
   userDetailsForm = this.fb.group({
     username: [{value: '', disabled: true}, Validators.required],
-    name: ['', Validators.required],
-    email: ['', Validators.required],
-    phone: [''],
+    name: ['', [Validators.required, Validators.maxLength]],
+    email: ['', [Validators.required, Validators.email, Validators.maxLength]],
+    phone: ['', Validators.maxLength],
   });
 
   constructor(private fb: FormBuilder, public snackBar: MatSnackBar, private rest: RestService) {
@@ -84,6 +84,8 @@ export class UserSettingsComponent implements OnInit {
       } else {
         this.openSnackBar('Password was not changed!!!', 'OK');
       }
+    }, error => {
+      this.openSnackBar(error.error.message, 'OK');
     });
   }
 
@@ -92,6 +94,8 @@ export class UserSettingsComponent implements OnInit {
       this.getUserByToken();
       this.openSnackBar('User data updated', 'OK');
 
+    }, error => {
+      this.openSnackBar(error.error.message, 'OK');
     });
   }
 
