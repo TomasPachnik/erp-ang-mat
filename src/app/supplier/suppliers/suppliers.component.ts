@@ -67,13 +67,11 @@ export class SuppliersComponent implements OnInit {
 
   suppliers: any = [];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private router: Router, private rest: RestService) {
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
     this.getSuppliers();
   }
 

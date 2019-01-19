@@ -67,13 +67,10 @@ export class CustomersComponent implements OnInit {
 
   customers: any = [];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   constructor(private router: Router, private rest: RestService) {
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
     this.getCustomers();
   }
 
