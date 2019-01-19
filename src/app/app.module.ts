@@ -50,6 +50,7 @@ import {UsersComponent} from './user/users/users.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {InvoicesComponent} from './invoice/invoices/invoices.component';
 import {InvoiceDetailComponent} from './invoice/invoice-detail/invoice-detail.component';
+import {NgHttpLoaderModule} from 'ng-http-loader';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -136,7 +137,8 @@ export class MyDateAdapter extends NativeDateAdapter {
     HttpClientModule,
     FormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgHttpLoaderModule.forRoot()
   ],
   exports: [
     MatToolbarModule,
