@@ -4,7 +4,7 @@
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <p>Please login to continue</p>
         <mat-form-field class="full-width-input">
-          <input matInput placeholder="User" formControlName="username" required autofocus>
+          <input matInput placeholder="User" formControlName="username" required autofocus autocomplete="off">
         </mat-form-field>
         <mat-form-field class="full-width-input">
           <input matInput type="password" placeholder="Password" formControlName="password" required>
