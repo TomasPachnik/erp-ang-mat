@@ -10,5 +10,5 @@
     <button mat-menu-item (click)="userSettings()">Settings</button>
     <button mat-menu-item (click)="onLogout()">Logout</button>
   </mat-menu>
-  <ng-http-loader></ng-http-loader>
+  <ng-http-loader [debounceDelay]="500" [minDuration]="500"></ng-http-loader>
 </mat-toolbar>
