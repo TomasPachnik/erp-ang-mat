@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,7 @@ import {HttpClient} from '@angular/common/http';
   styles: []
 })
 export class AppComponent {
-  constructor(public http: HttpClient) {
+  constructor(private translate: TranslateService) {
   }
 
-  ping() {
-    this.http
-      .get('http://example.com/api/things')
-      .subscribe(data => console.log(data), err => console.log(err));
-  }
 }

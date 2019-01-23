@@ -1,0 +1,8 @@
+{
+  "login": {
+    "title": "Please login to continue",
+    "user": "User",
+    "password": "Password",
+    "submit": "Login"
+  }
+}

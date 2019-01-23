@@ -1,8 +1,9 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import {AuthService} from './../auth/auth.service';
 import {MatProgressButtonOptions} from 'mat-progress-buttons';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   btnOpts: MatProgressButtonOptions = {
     active: false,
-    text: 'Login',
+    text: '',
     spinnerSize: 19,
     raised: true,
     stroked: true,
@@ -26,10 +27,11 @@ export class LoginComponent implements OnInit {
     mode: 'indeterminate',
   };
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: AuthService
-  ) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private translate: TranslateService) {
+    translate.setDefaultLang('sk');
+    translate.get('login.submit').subscribe((translated: string) => {
+      this.btnOpts.text = translated;
+    });
   }
 
   ngOnInit() {

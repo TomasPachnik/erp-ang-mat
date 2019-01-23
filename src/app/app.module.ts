@@ -8,9 +8,11 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavComponent} from './nav/nav.component';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {LayoutModule} from '@angular/cdk/layout';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -51,7 +53,7 @@ import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {InvoicesComponent} from './invoice/invoices/invoices.component';
 import {InvoiceDetailComponent} from './invoice/invoice-detail/invoice-detail.component';
 import {NgHttpLoaderModule} from 'ng-http-loader';
-import { MatProgressButtonsModule } from 'mat-progress-buttons';
+import {MatProgressButtonsModule} from 'mat-progress-buttons';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -140,7 +142,14 @@ export class MyDateAdapter extends NativeDateAdapter {
     MatDatepickerModule,
     MatNativeDateModule,
     NgHttpLoaderModule.forRoot(),
-    MatProgressButtonsModule.forRoot()
+    MatProgressButtonsModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     MatToolbarModule,
@@ -167,4 +176,8 @@ export class MyDateAdapter extends NativeDateAdapter {
   bootstrap: [AppComponent]
 })
 export class AppModule {
+}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
 }
