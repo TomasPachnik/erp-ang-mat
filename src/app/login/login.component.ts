@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from './../auth/auth.service';
 import {MatProgressButtonOptions} from 'mat-progress-buttons';
 import {TranslateService} from '@ngx-translate/core';
+import {LangService} from '../lang.service';
 
 @Component({
   selector: 'app-login',
@@ -27,8 +28,8 @@ export class LoginComponent implements OnInit {
     mode: 'indeterminate',
   };
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private translate: TranslateService) {
-    translate.setDefaultLang('sk');
+  constructor(private fb: FormBuilder, private authService: AuthService, private translate: TranslateService, ) {
+    translate.setDefaultLang(LangService.getLanguage());
     translate.get('login.submit').subscribe((translated: string) => {
       this.btnOpts.text = translated;
     });
