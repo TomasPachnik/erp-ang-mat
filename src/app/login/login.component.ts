@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import {AuthService} from './../auth/auth.service';
+import {MatProgressButtonOptions} from 'mat-progress-buttons';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,19 @@ import {AuthService} from './../auth/auth.service';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   incorrectLogin = false;
+
+  btnOpts: MatProgressButtonOptions = {
+    active: false,
+    text: 'Login',
+    spinnerSize: 19,
+    raised: true,
+    stroked: true,
+    buttonColor: 'primary',
+    spinnerColor: 'accent',
+    fullWidth: false,
+    disabled: false,
+    mode: 'indeterminate',
+  };
 
   constructor(
     private fb: FormBuilder,
@@ -32,7 +46,9 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
+    this.btnOpts.active = true;
     const success = await this.authService.login(this.form.value);
+    this.btnOpts.active = false;
     if (success !== true) {
       this.invalidLogin();
     }

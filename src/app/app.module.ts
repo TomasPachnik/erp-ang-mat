@@ -51,6 +51,7 @@ import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {InvoicesComponent} from './invoice/invoices/invoices.component';
 import {InvoiceDetailComponent} from './invoice/invoice-detail/invoice-detail.component';
 import {NgHttpLoaderModule} from 'ng-http-loader';
+import { MatProgressButtonsModule } from 'mat-progress-buttons';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -138,7 +139,8 @@ export class MyDateAdapter extends NativeDateAdapter {
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgHttpLoaderModule.forRoot()
+    NgHttpLoaderModule.forRoot(),
+    MatProgressButtonsModule.forRoot()
   ],
   exports: [
     MatToolbarModule,

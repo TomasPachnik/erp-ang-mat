@@ -9,7 +9,7 @@
         <mat-form-field class="full-width-input">
           <input matInput type="password" placeholder="Password" formControlName="password" required>
         </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Login</button>
+        <mat-spinner-button type="submit" [options]="btnOpts">Login</mat-spinner-button>
       </form>
     </mat-card-content>
   </mat-card>
