@@ -2,6 +2,8 @@ import {Component, ViewChild} from '@angular/core';
 import {AuthService} from './../auth/auth.service';
 import {Router} from '@angular/router';
 import {NavComponent} from '../nav/nav.component';
+import {LangService} from '../lang.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +21,8 @@ export class HeaderComponent {
   name = '';
   navComponent: NavComponent;
 
-  constructor(private authService: AuthService, private router: Router, private nav: NavComponent) {
+  constructor(private authService: AuthService, private router: Router, private nav: NavComponent, private translate: TranslateService) {
+    translate.setDefaultLang(LangService.getLanguage());
     this.name = authService.getName();
     this.navComponent = nav;
   }

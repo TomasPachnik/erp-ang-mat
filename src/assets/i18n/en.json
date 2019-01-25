@@ -14,5 +14,9 @@
     "suppliers": "Suppliers",
     "todo": "To-Do",
     "users": "Users"
+  },
+  "header": {
+    "settings": "Settings",
+    "logout": "Logout"
   }
 }

@@ -13,5 +13,9 @@
     "suppliers": "Dodávatelia",
     "todo": "To-Do",
     "users": "Používatelia"
+  },
+  "header": {
+    "settings": "Nastavenia",
+    "logout": "Odhlásiť"
   }
 }

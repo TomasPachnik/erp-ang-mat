@@ -7,8 +7,8 @@
     <mat-icon>account_circle</mat-icon>&nbsp;<span>{{name}}</span>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="userSettings()">Settings</button>
-    <button mat-menu-item (click)="onLogout()">Logout</button>
+    <button mat-menu-item (click)="userSettings()">{{ 'header.settings' | translate }}</button>
+    <button mat-menu-item (click)="onLogout()">{{ 'header.logout' | translate }}</button>
   </mat-menu>
   <ng-http-loader [debounceDelay]="500" [minDuration]="500"></ng-http-loader>
 </mat-toolbar>
