@@ -8,7 +8,7 @@ const endpoint = (() => {
   if (environment.production) {
     return 'https://erpapp.eu:8443/';
   } else {
-    return 'https://192.168.2.221/';
+    return 'https://localhost:8443/';
   }
 });
 
