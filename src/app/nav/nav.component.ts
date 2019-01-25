@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {AuthService} from '../auth/auth.service';
 import {MatSidenav} from '@angular/material';
+import {TranslateService} from '@ngx-translate/core';
+import {LangService} from '../lang.service';
 
 @Component({
   selector: 'app-nav',
@@ -19,7 +21,8 @@ export class NavComponent {
 
   @ViewChild('sidenav') private nav: MatSidenav;
 
-  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService) {
+  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService, private translate: TranslateService) {
+    translate.setDefaultLang(LangService.getLanguage());
   }
 
   toggleNav() {

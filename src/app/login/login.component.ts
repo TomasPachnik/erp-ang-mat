@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     mode: 'indeterminate',
   };
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private translate: TranslateService,) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private translate: TranslateService) {
     translate.setDefaultLang(LangService.getLanguage());
     translate.get('login.submit').subscribe((translated: string) => {
       this.btnOpts.text = translated;

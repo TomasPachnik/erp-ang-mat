@@ -4,5 +4,14 @@
     "user": "Používateľské meno",
     "password": "Heslo",
     "submit": "Prihlásiť"
+  },
+  "nav": {
+    "menu": "Menu",
+    "dashboard": "Plocha",
+    "invoices": "Faktúry",
+    "customers": "Zákazníci",
+    "suppliers": "Dodávatelia",
+    "todo": "To-Do",
+    "users": "Používatelia"
   }
 }

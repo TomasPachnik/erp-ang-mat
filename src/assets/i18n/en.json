@@ -4,5 +4,15 @@
     "user": "User name",
     "password": "Password",
     "submit": "Login"
+  },
+  ,
+  "nav": {
+    "menu": "Menu",
+    "dashboard": "Dashboard",
+    "invoices": "Invoices",
+    "customers": "Customers",
+    "suppliers": "Suppliers",
+    "todo": "To-Do",
+    "users": "Users"
   }
 }
