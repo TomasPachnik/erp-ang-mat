@@ -16,6 +16,7 @@ import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {AdminGuard} from './auth/admin.guard';
 import {InvoicesComponent} from './invoice/invoices/invoices.component';
 import {InvoiceDetailComponent} from './invoice/invoice-detail/invoice-detail.component';
+import {ToDoComponent} from './to-do/to-do.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
       {path: 'invoices', component: InvoicesComponent},
       {path: 'invoices/:uuid', component: InvoiceDetailComponent},
       {path: 'invoices/new-invoice', component: InvoiceDetailComponent},
+      {path: 'to-do', component: ToDoComponent},
       {path: '404', component: NotFoundComponent}
     ]
   },

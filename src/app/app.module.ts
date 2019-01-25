@@ -54,6 +54,8 @@ import {InvoicesComponent} from './invoice/invoices/invoices.component';
 import {InvoiceDetailComponent} from './invoice/invoice-detail/invoice-detail.component';
 import {NgHttpLoaderModule} from 'ng-http-loader';
 import {MatProgressButtonsModule} from 'mat-progress-buttons';
+import {ToDoComponent} from './to-do/to-do.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -108,7 +110,8 @@ export class MyDateAdapter extends NativeDateAdapter {
     UsersComponent,
     UserDetailComponent,
     InvoicesComponent,
-    InvoiceDetailComponent
+    InvoiceDetailComponent,
+    ToDoComponent
   ],
   imports: [
     BrowserModule,
@@ -141,6 +144,7 @@ export class MyDateAdapter extends NativeDateAdapter {
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    DragDropModule,
     NgHttpLoaderModule.forRoot(),
     MatProgressButtonsModule.forRoot(),
     TranslateModule.forRoot({
@@ -163,7 +167,8 @@ export class MyDateAdapter extends NativeDateAdapter {
     MatSelectModule,
     MatTooltipModule,
     FormsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    DragDropModule
   ],
   providers: [AuthService, AuthGuard, AdminGuard, RestService, MatDatepickerModule,
     {provide: DateAdapter, useClass: MyDateAdapter},
