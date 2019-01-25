@@ -1,7 +1,7 @@
 {
   "login": {
     "title": "Please login to continue",
-    "user": "User",
+    "user": "User name",
     "password": "Password",
     "submit": "Login"
   }

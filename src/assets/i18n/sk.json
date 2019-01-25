@@ -1,7 +1,7 @@
 {
   "login": {
-    "title": "Pre pokračovanie sa musíte prihlásiť",
-    "user": "Používateľ",
+    "title": "Prihláste sa",
+    "user": "Používateľské meno",
     "password": "Heslo",
     "submit": "Prihlásiť"
   }
