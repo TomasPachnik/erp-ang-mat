@@ -1,18 +1,23 @@
-<div class="signin-content">
-  <mat-card [className]="incorrectLogin ? 'mat-card shake-it': 'mat-card'">
-    <mat-card-content>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <p>{{ 'login.title' | translate }}</p>
-        <mat-form-field class="full-width-input">
-          <input matInput placeholder="{{'login.user' | translate}}" formControlName="username" required autofocus
-                 autocomplete="off">
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <input matInput type="password" placeholder="{{'login.password' | translate}}" formControlName="password"
-                 required>
-        </mat-form-field>
-        <mat-spinner-button type="submit" [options]="btnOpts"></mat-spinner-button>
-      </form>
-    </mat-card-content>
-  </mat-card>
+<div class="login-container">
+  <div class="signin-content">
+    <mat-card [className]="incorrectLogin ? 'mat-card shake-it': 'mat-card'">
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <p>{{ 'login.title' | translate }}</p>
+          <mat-form-field class="full-width-input">
+            <input matInput placeholder="{{'login.user' | translate}}" formControlName="username" required autofocus
+                   autocomplete="off">
+          </mat-form-field>
+          <mat-form-field class="full-width-input">
+            <input matInput type="password" placeholder="{{'login.password' | translate}}" formControlName="password"
+                   required>
+          </mat-form-field>
+          <mat-spinner-button type="submit" [options]="btnOpts"></mat-spinner-button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <footer>
+    <p>Copyright © {{getYear()}}</p>
+  </footer>
 </div>
