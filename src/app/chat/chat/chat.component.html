@@ -1,3 +1,51 @@
-<p>
-  chat works!
-</p>
+<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" position="end" opened class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item><span>Alyssa Franklin</span></a>
+      <a mat-list-item><span>Brenden Becker</span></a>
+      <a mat-list-item><span>Reginald Lee</span></a>
+      <a mat-list-item><span>Summer Henderson</span></a>
+      <a mat-list-item><span>Heather Taylor</span></a>
+      <a mat-list-item><span>Mariana Padilla</span></a>
+      <a mat-list-item><span>Olivia Alvarez</span></a>
+      <a mat-list-item><span>Tristan Strickland</span></a>
+      <a mat-list-item><span>Candace Matthews</span></a>
+      <a mat-list-item><span>Kristina Neal</span></a>
+      <a mat-list-item><span>Serena Erickson</span></a>
+      <a mat-list-item><span>Jason Molina</span></a>
+      <a mat-list-item><span>Ashleigh Sandoval</span></a>
+      <a mat-list-item><span>Gabrielle Hodges</span></a>
+      <a mat-list-item><span>Theresa Maxwell</span></a>
+      <a mat-list-item><span>Gilbert Reeves</span></a>
+      <a mat-list-item><span>Joe Walker</span></a>
+      <a mat-list-item><span>Simone Bates</span></a>
+      <a mat-list-item><span>Isabel Robles</span></a>
+      <a mat-list-item><span>Peyton Steele</span></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <div class="row" *ngFor="let item of items; let i = index">
+      <mat-card>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse felis est, rutrum non nulla posuere,
+        faucibus tempor diam. Sed ac erat elementum, condimentum magna non, sollicitudin magna. Donec in quam sed dui
+        vestibulum commodo. Donec imperdiet, lorem tincidunt bibendum tincidunt, dolor leo pharetra orci, eu sagittis
+        tellus neque sed ex. Suspendisse vulputate, purus in blandit vestibulum, diam est maximus felis, a ultrices
+        felis sem at arcu. Vivamus luctus, sapien in bibendum rutrum, libero ante iaculis nunc, non suscipit enim
+        nulla
+        et enim. Aenean ut mauris sed est lacinia sollicitudin et sit amet velit. Vivamus non felis at lacus consequat
+        finibus. Integer placerat euismod dolor, quis porttitor velit finibus et. Sed sagittis vitae ante id pretium.
+      </mat-card>
+      <br/>
+      <br/>
+    </div>
+    <mat-card>
+      <form class="example-form">
+        <mat-form-field class="example-full-width card">
+          <input matInput placeholder="What do you want to say?" autocomplete="off">
+        </mat-form-field>
+      </form>
+    </mat-card>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
