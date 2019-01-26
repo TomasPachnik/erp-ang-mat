@@ -56,6 +56,7 @@ import {NgHttpLoaderModule} from 'ng-http-loader';
 import {MatProgressButtonsModule} from 'mat-progress-buttons';
 import {ToDoComponent} from './to-do/to-do.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ChatComponent } from './chat/chat/chat.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -111,7 +112,8 @@ export class MyDateAdapter extends NativeDateAdapter {
     UserDetailComponent,
     InvoicesComponent,
     InvoiceDetailComponent,
-    ToDoComponent
+    ToDoComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

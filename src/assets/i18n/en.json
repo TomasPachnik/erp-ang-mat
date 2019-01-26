@@ -1,7 +1,7 @@
 {
   "login": {
     "title": "Please login to continue",
-    "user": "User name",
+    "user": "Username",
     "password": "Password",
     "submit": "Login"
   },
@@ -13,6 +13,7 @@
     "customers": "Customers",
     "suppliers": "Suppliers",
     "todo": "To-Do",
+    "chat": "Chat",
     "users": "Users"
   },
   "header": {

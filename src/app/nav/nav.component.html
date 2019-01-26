@@ -20,6 +20,9 @@
       <a mat-list-item routerLink="/to-do">
         <mat-icon>today</mat-icon>&nbsp;<span>{{ 'nav.todo' | translate }}</span>
       </a>
+      <a mat-list-item routerLink="/chat">
+        <mat-icon>today</mat-icon>&nbsp;<span>{{ 'nav.chat' | translate }}</span>
+      </a>
       <a *ngIf="hasAdminRole()" mat-list-item routerLink="/users">
         <mat-icon>supervised_user_circle</mat-icon>&nbsp;<span>{{ 'nav.users' | translate }}</span>
       </a>
