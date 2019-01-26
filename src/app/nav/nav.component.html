@@ -17,7 +17,7 @@
       <a mat-list-item routerLink="/suppliers">
         <mat-icon>how_to_vote</mat-icon>&nbsp;<span>{{ 'nav.suppliers' | translate }}</span>
       </a>
-      <a mat-list-item routerLink="/to-do">
+      <a *ngIf="hasAdminRole()" mat-list-item routerLink="/to-do">
         <mat-icon>today</mat-icon>&nbsp;<span>{{ 'nav.todo' | translate }}</span>
       </a>
       <a *ngIf="hasAdminRole()" mat-list-item routerLink="/users">

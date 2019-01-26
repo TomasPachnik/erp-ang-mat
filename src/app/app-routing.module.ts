@@ -35,7 +35,6 @@ const routes: Routes = [
       {path: 'invoices', component: InvoicesComponent},
       {path: 'invoices/:uuid', component: InvoiceDetailComponent},
       {path: 'invoices/new-invoice', component: InvoiceDetailComponent},
-      {path: 'to-do', component: ToDoComponent},
       {path: '404', component: NotFoundComponent}
     ]
   },
@@ -44,6 +43,7 @@ const routes: Routes = [
     component: HomeLayoutComponent,
     canActivate: [AdminGuard],
     children: [
+      {path: 'to-do', component: ToDoComponent},
       {path: 'users', component: UsersComponent},
       {path: 'users/:uuid', component: UserDetailComponent},
       {path: 'users/new-user', component: UserDetailComponent},
