@@ -1,92 +1,112 @@
 <div class="moved-down">
-  <mat-card class="content-card">
-    <mat-card-title>Invoice detail</mat-card-title>
-    <mat-card-content>
+    <mat-card class="content-card">
+        <mat-card-title>{{ 'invoiceDetail.title' | translate }}</mat-card-title>
+        <mat-card-content>
 
-      <form [formGroup]="invoiceDetailsForm" (ngSubmit)="onSubmitInvoiceDetailsForm()">
-        <div class="form-container">
-          <mat-form-field>
-            <input matInput placeholder="Name" formControlName="name" required>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Invoice number" formControlName="invoiceNumber" required>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Variable symbol" formControlName="supplierVariableSymbol" required>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-select placeholder="Currency" formControlName="currency" required>
-              <mat-option value="€">€</mat-option>
-              <mat-option value="$">$</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-select placeholder="Customer" formControlName="customer" required>
-              <mat-option *ngFor="let customer of customers" [value]="customer.uuid">
-                {{customer.name}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-select placeholder="Supplier" formControlName="supplier" required>
-              <mat-option *ngFor="let supplier of suppliers" [value]="supplier.uuid">
-                {{supplier.name}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput [matDatepicker]="dp1" placeholder="Date of issue" formControlName="dateOfIssue" required>
-            <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
-            <mat-datepicker #dp1></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput [matDatepicker]="dp2" placeholder="Delivery date" formControlName="deliveryDate" required>
-            <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-            <mat-datepicker #dp2></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput [matDatepicker]="dp3" placeholder="Due date" formControlName="dueDate" required>
-            <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
-            <mat-datepicker #dp3></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Note" formControlName="note">
-          </mat-form-field>
-          <h3>Assets</h3>
-          <div class="form-container" *ngFor="let asset of assetsFormData.controls; let i=index"
-               [formGroup]="asset">
-            <div mat-dialog-actions align="end">
-              <button type="button" mat-mini-fab color="warn" matTooltip="Remove asset"
-                      (click)="assetForm.get('items').removeAt(i)">
-                <mat-icon>remove</mat-icon>
-              </button>
-            </div>
-            <mat-form-field>
-              <input [attr.id]="'name'+i" matInput placeholder="Name" formControlName="name" required>
-            </mat-form-field>
-            <mat-form-field>
-              <input [attr.id]="'count'+i" matInput placeholder="Count" formControlName="count" required>
-            </mat-form-field>
-            <mat-form-field>
-              <input [attr.id]="'unit'+i" matInput placeholder="Unit" formControlName="unit" required>
-            </mat-form-field>
-            <mat-form-field>
-              <input [attr.id]="'unitPrice'+i" matInput placeholder="Unit Price" formControlName="unitPrice" required>
-            </mat-form-field>
-          </div>
-          <div mat-dialog-actions align="end">
-            <button type="button" mat-mini-fab color="primary" matTooltip="Add new asset"
-                    (click)="assetsFormData.push(buildItem(null, '', 0, '', 0))">
-              <mat-icon>add</mat-icon>
-            </button>
-          </div>
-          <br/>
-          <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
-                  [disabled]="!invoiceDetailsForm.valid">Submit
-          </button>
-        </div>
-      </form>
+            <form [formGroup]="invoiceDetailsForm" (ngSubmit)="onSubmitInvoiceDetailsForm()">
+                <div class="form-container">
+                    <mat-form-field>
+                        <input matInput placeholder="{{ 'invoiceDetail.name' | translate }}" formControlName="name"
+                               required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="{{ 'invoiceDetail.invoiceNumber' | translate }}"
+                               formControlName="invoiceNumber" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="{{ 'invoiceDetail.variableSymbol' | translate }}"
+                               formControlName="supplierVariableSymbol" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-select placeholder="{{ 'invoiceDetail.currency' | translate }}" formControlName="currency"
+                                    required>
+                            <mat-option value="€">€</mat-option>
+                            <mat-option value="$">$</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-select placeholder="{{ 'invoiceDetail.customer' | translate }}" formControlName="customer"
+                                    required>
+                            <mat-option *ngFor="let customer of customers" [value]="customer.uuid">
+                                {{customer.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-select placeholder="{{ 'invoiceDetail.supplier' | translate }}" formControlName="supplier"
+                                    required>
+                            <mat-option *ngFor="let supplier of suppliers" [value]="supplier.uuid">
+                                {{supplier.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="dp1" placeholder="{{ 'invoiceDetail.issueDate' | translate }}"
+                               formControlName="dateOfIssue" required>
+                        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                        <mat-datepicker #dp1></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="dp2"
+                               placeholder="{{ 'invoiceDetail.deliveryDate' | translate }}"
+                               formControlName="deliveryDate" required>
+                        <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                        <mat-datepicker #dp2></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="dp3" placeholder="{{ 'invoiceDetail.dueDate' | translate }}"
+                               formControlName="dueDate" required>
+                        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                        <mat-datepicker #dp3></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="{{ 'invoiceDetail.note' | translate }}" formControlName="note">
+                    </mat-form-field>
+                    <h3>{{ 'invoiceDetail.assets' | translate }}</h3>
+                    <div class="form-container" *ngFor="let asset of assetsFormData.controls; let i=index"
+                         [formGroup]="asset">
+                        <div mat-dialog-actions align="end">
+                            <button type="button" mat-mini-fab color="warn"
+                                    matTooltip="{{ 'invoiceDetail.asset.remove' | translate }}"
+                                    (click)="assetForm.get('items').removeAt(i)">
+                                <mat-icon>remove</mat-icon>
+                            </button>
+                        </div>
+                        <mat-form-field>
+                            <input [attr.id]="'name'+i" matInput
+                                   placeholder="{{ 'invoiceDetail.asset.name' | translate }}" formControlName="name"
+                                   required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input [attr.id]="'count'+i" matInput
+                                   placeholder="{{ 'invoiceDetail.asset.count' | translate }}" formControlName="count"
+                                   required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input [attr.id]="'unit'+i" matInput
+                                   placeholder="{{ 'invoiceDetail.asset.unit' | translate }}" formControlName="unit"
+                                   required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input [attr.id]="'unitPrice'+i" matInput
+                                   placeholder="{{ 'invoiceDetail.asset.unitPrice' | translate }}"
+                                   formControlName="unitPrice" required>
+                        </mat-form-field>
+                    </div>
+                    <div mat-dialog-actions align="end">
+                        <button type="button" mat-mini-fab color="primary"
+                                matTooltip="{{ 'invoiceDetail.asset.add' | translate }}"
+                                (click)="assetsFormData.push(buildItem(null, '', 0, '', 0))">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+                    <br/>
+                    <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
+                            [disabled]="!invoiceDetailsForm.valid">{{ 'invoiceDetail.submit' | translate }}
+                    </button>
+                </div>
+            </form>
 
-    </mat-card-content>
-  </mat-card>
+        </mat-card-content>
+    </mat-card>
 </div>

@@ -24,7 +24,7 @@
     "cin": "IČO",
     "tin": "DIČ",
     "town": "Obec",
-    "action": "Akcie",
+    "action": "Akcia",
     "add": "Nový dodávateľ",
     "sure": "Ste si istý?"
   },
@@ -48,7 +48,7 @@
     "cin": "IČO",
     "tin": "DIČ",
     "town": "Obec",
-    "action": "Akcie",
+    "action": "Akcia",
     "add": "Nový zákazník",
     "sure": "Ste si istý?"
   },
@@ -64,6 +64,42 @@
     "country": "Krajina",
     "bankName": "Názov banky",
     "iban": "IBAN",
+    "submit": "Potvrdiť"
+  },
+  "invoices": {
+    "title": "Faktúry",
+    "name": "Názov",
+    "total": "Celkovo",
+    "supplier": "Dodávateľ",
+    "customer": "Zákazník",
+    "issueDate": "Dátum vytvorenia",
+    "deliveryDate": "Dátum dodania",
+    "dueDate": "Dátum splatnosti",
+    "price": "Cena",
+    "action": "Akcia",
+    "add": "Nová faktúra"
+  },
+  "invoiceDetail": {
+    "title": "Detail faktúry",
+    "name": "Názov faktúry",
+    "invoiceNumber": "Číslo faktúry",
+    "variableSymbol": "Variabilný symbol",
+    "currency": "Mena",
+    "customer": "Zákazník",
+    "supplier": "Dodávateľ",
+    "issueDate": "Dátum vytvorenia",
+    "deliveryDate": "Dátum dodania",
+    "dueDate": "Dátum splatnosti",
+    "note": "Poznámka",
+    "assets": "Položky",
+    "asset": {
+      "add": "Nová položka",
+      "remove": "Odstrániť položku",
+      "name": "Názov položky",
+      "count": "Množstvo",
+      "unit": "Jednotka",
+      "unitPrice": "Jednotková cena"
+    },
     "submit": "Potvrdiť"
   }
 }

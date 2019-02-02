@@ -65,5 +65,41 @@
     "bankName": "Bank name",
     "iban": "IBAN",
     "submit": "Submit"
+  },
+  "invoices": {
+    "title": "Invoices",
+    "name": "Name",
+    "total": "Total",
+    "supplier": "Supplier",
+    "customer": "Customer",
+    "issueDate": "Issue date",
+    "deliveryDate": "Delivery date",
+    "dueDate": "due date",
+    "price": "Price",
+    "action": "Action",
+    "add": "Add new invoice"
+  },
+  "invoiceDetail": {
+    "title": "Invoice detail",
+    "name": "Name",
+    "invoiceNumber": "Invoice number",
+    "variableSymbol": "Variable symbol",
+    "currency": "Currency",
+    "customer": "Customer",
+    "supplier": "Supplier",
+    "issueDate": "Issue date",
+    "deliveryDate": "Delivery date",
+    "dueDate": "due date",
+    "note": "Note",
+    "assets": "Assets",
+    "asset": {
+      "add": "Add new asset",
+      "remove": "Remove asset",
+      "name": "Asset name",
+      "count": "Count",
+      "unit": "Unit",
+      "unitPrice": "Unit price"
+    },
+    "submit": "Submit"
   }
 }
