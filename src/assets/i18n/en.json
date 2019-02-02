@@ -5,7 +5,6 @@
     "password": "Password",
     "submit": "Login"
   },
-  ,
   "nav": {
     "menu": "Menu",
     "dashboard": "Dashboard",
@@ -18,5 +17,28 @@
   "header": {
     "settings": "Settings",
     "logout": "Logout"
+  },
+  "suppliers": {
+    "title": "Suppliers",
+    "name": "Name",
+    "cin": "Company identification number",
+    "tin": "Tax identification number",
+    "town": "Town",
+    "action": "Action",
+    "add": "Add new supplier"
+  },
+  "supplierDetail": {
+    "title": "Supplier Detail",
+    "name": "Name",
+    "cin": "Company identification number",
+    "tin": "Tax identification number",
+    "street": "Street",
+    "houseNumber": "House number",
+    "postalCode": "Postal code",
+    "town": "Town",
+    "country": "Country",
+    "bankName": "Bank name",
+    "iban": "IBAN",
+    "submit": "Submit"
   }
 }

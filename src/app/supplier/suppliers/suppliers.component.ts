@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {Router} from '@angular/router';
 import {RestService} from '../../rest.service';
+import {LangService} from 'src/app/lang.service';
+import {TranslateService} from '@ngx-translate/core';
 
 export class Address {
   uuid: string;
@@ -68,7 +70,8 @@ export class SuppliersComponent implements OnInit {
   suppliers: any = [];
 
 
-  constructor(private router: Router, private rest: RestService) {
+  constructor(private router: Router, private rest: RestService, private translate: TranslateService) {
+    translate.setDefaultLang(LangService.getLanguage());
   }
 
   ngOnInit() {

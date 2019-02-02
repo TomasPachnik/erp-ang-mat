@@ -17,5 +17,28 @@
   "header": {
     "settings": "Nastavenia",
     "logout": "Odhlásiť"
+  },
+  "suppliers": {
+    "title": "Dodávatelia",
+    "name": "Názov",
+    "cin": "IČO",
+    "tin": "DIČ",
+    "town": "Obec",
+    "action": "Akcie",
+    "add": "Nový dodávateľ"
+  },
+  "supplierDetail": {
+    "title": "Detail dodávateľa",
+    "name": "Názov",
+    "cin": "IČO",
+    "tin": "DIČ",
+    "street": "Ulica",
+    "houseNumber": "Číslo domu",
+    "postalCode": "PSČ",
+    "town": "Obec",
+    "country": "Krajina",
+    "bankName": "Názov banky",
+    "iban": "IBAN",
+    "submit": "Potvrdiť"
   }
 }
