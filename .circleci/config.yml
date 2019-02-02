@@ -9,13 +9,13 @@ jobs:
       - setup_remote_docker
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+            - v2-dependencies-{{ checksum "package.json" }}
+            - v2-dependencies-
       - run: yarn install
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v2-dependencies-{{ checksum "package.json" }}
       - run: yarn ng -- build --prod --aot --no-progress
       - run: docker build -f Dockerfile -t $DOCKER_HUB_USER/$DOCKER_HUB_PROJECT:0.1 .
       - deploy:
