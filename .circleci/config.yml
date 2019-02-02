@@ -12,7 +12,7 @@ jobs:
             - v3-dependencies-{{ checksum "package.json" }}
             - v3-dependencies-
       - run: npm install
-      - run: npm install -g @angular/cli
+      - run: sudo npm install -g @angular/cli
       - save_cache:
           paths:
             - node_modules
