@@ -1,49 +1,49 @@
 <div class="moved-down">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Customers</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <table mat-table [dataSource]="dataSource">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{ 'customers.title' | translate }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="dataSource">
 
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name</th>
-          <td mat-cell *matCellDef="let customer">{{customer.name}}</td>
-        </ng-container>
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'customers.name' | translate }}</th>
+                    <td mat-cell *matCellDef="let customer">{{customer.name}}</td>
+                </ng-container>
 
-        <ng-container matColumnDef="companyIdentificationNumber">
-          <th mat-header-cell *matHeaderCellDef> Company identification number</th>
-          <td mat-cell *matCellDef="let customer"> {{customer.companyIdentificationNumber}}</td>
-        </ng-container>
+                <ng-container matColumnDef="companyIdentificationNumber">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'customers.cin' | translate }}</th>
+                    <td mat-cell *matCellDef="let customer">{{customer.companyIdentificationNumber}}</td>
+                </ng-container>
 
-        <ng-container matColumnDef="taxIdentificationNumber">
-          <th mat-header-cell *matHeaderCellDef> Tax identification number</th>
-          <td mat-cell *matCellDef="let customer"> {{customer.taxIdentificationNumber}}</td>
-        </ng-container>
+                <ng-container matColumnDef="taxIdentificationNumber">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'customers.tin' | translate }}</th>
+                    <td mat-cell *matCellDef="let customer">{{customer.taxIdentificationNumber}}</td>
+                </ng-container>
 
-        <ng-container matColumnDef="town">
-          <th mat-header-cell *matHeaderCellDef> Town</th>
-          <td mat-cell *matCellDef="let customer"> {{customer.address.town}}</td>
-        </ng-container>
+                <ng-container matColumnDef="town">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'customers.town' | translate }}</th>
+                    <td mat-cell *matCellDef="let customer">{{customer.address.town}}</td>
+                </ng-container>
 
-        <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef>Actions</th>
-          <td mat-cell *matCellDef="let customer">
-            <button mat-button (click)="onEdit(customer)">
-              <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-button (click)="onDelete(customer)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </td>
-        </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'customers.action' | translate }}</th>
+                    <td mat-cell *matCellDef="let customer">
+                        <button mat-button (click)="onEdit(customer)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-button (click)="onDelete(customer)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-    </mat-card-content>
-  </mat-card>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
 </div>
-<button class="new-entry" mat-fab color="primary" (click)="newEntry()" matTooltip="Add new customer">
-  <mat-icon>add</mat-icon>
+<button class="new-entry" mat-fab color="primary" (click)="newEntry()" matTooltip="{{ 'customers.add' | translate }}">
+    <mat-icon>add</mat-icon>
 </button>

@@ -41,5 +41,29 @@
     "bankName": "Názov banky",
     "iban": "IBAN",
     "submit": "Potvrdiť"
+  },
+  "customers": {
+    "title": "Zákazníci",
+    "name": "Názov",
+    "cin": "IČO",
+    "tin": "DIČ",
+    "town": "Obec",
+    "action": "Akcie",
+    "add": "Nový zákazník",
+    "sure": "Ste si istý?"
+  },
+  "customerDetail": {
+    "title": "Detail zákazníka",
+    "name": "Názov",
+    "cin": "IČO",
+    "tin": "DIČ",
+    "street": "Ulica",
+    "houseNumber": "Číslo domu",
+    "postalCode": "PSČ",
+    "town": "Obec",
+    "country": "Krajina",
+    "bankName": "Názov banky",
+    "iban": "IBAN",
+    "submit": "Potvrdiť"
   }
 }

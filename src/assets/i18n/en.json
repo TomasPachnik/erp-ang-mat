@@ -26,10 +26,34 @@
     "town": "Town",
     "action": "Action",
     "add": "Add new supplier",
-    "sure": "Are you Sure?"
+    "sure": "Are you sure?"
   },
   "supplierDetail": {
-    "title": "Supplier Detail",
+    "title": "Supplier detail",
+    "name": "Name",
+    "cin": "Company identification number",
+    "tin": "Tax identification number",
+    "street": "Street",
+    "houseNumber": "House number",
+    "postalCode": "Postal code",
+    "town": "Town",
+    "country": "Country",
+    "bankName": "Bank name",
+    "iban": "IBAN",
+    "submit": "Submit"
+  },
+  "customers": {
+    "title": "Customers",
+    "name": "Name",
+    "cin": "Company identification number",
+    "tin": "Tax identification number",
+    "town": "Town",
+    "action": "Action",
+    "add": "Add new customer",
+    "sure": "Are you sure?"
+  },
+  "customerDetail": {
+    "title": "Customer detail",
     "name": "Name",
     "cin": "Company identification number",
     "tin": "Tax identification number",
