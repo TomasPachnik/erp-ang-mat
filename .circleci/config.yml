@@ -9,14 +9,15 @@ jobs:
       - setup_remote_docker
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "package.json" }}
-            - v2-dependencies-
-      - run: yarn install
+            - v3-dependencies-{{ checksum "package.json" }}
+            - v3-dependencies-
+      - run: npm install
+      - run: npm install -g @angular/cli
       - save_cache:
           paths:
             - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
-      - run: yarn ng -- build --prod --aot --no-progress
+          key: v3-dependencies-{{ checksum "package.json" }}
+      - run: ng build --prod
       - run: docker build -f Dockerfile -t $DOCKER_HUB_USER/$DOCKER_HUB_PROJECT:0.1 .
       - deploy:
           command:  |
