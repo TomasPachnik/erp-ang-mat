@@ -68,10 +68,13 @@ export class SuppliersComponent implements OnInit {
   dataSource = new MatTableDataSource<Supplier>(ELEMENT_DATA);
 
   suppliers: any = [];
-
+  sure: string;
 
   constructor(private router: Router, private rest: RestService, private translate: TranslateService) {
     translate.setDefaultLang(LangService.getLanguage());
+    translate.get('suppliers.sure').subscribe((translated: string) => {
+      this.sure = translated;
+    });
   }
 
   ngOnInit() {
@@ -103,7 +106,7 @@ export class SuppliersComponent implements OnInit {
   }
 
   removeSupplier(uuid) {
-    if (confirm('Ste si istý?')) {
+    if (confirm(this.sure)) {
       this.rest.removeSupplier(uuid).subscribe((data: {}) => {
         this.getSuppliers();
       });

@@ -25,7 +25,8 @@
     "tin": "Tax identification number",
     "town": "Town",
     "action": "Action",
-    "add": "Add new supplier"
+    "add": "Add new supplier",
+    "sure": "Are you Sure?"
   },
   "supplierDetail": {
     "title": "Supplier Detail",

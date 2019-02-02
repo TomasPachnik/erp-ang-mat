@@ -25,7 +25,8 @@
     "tin": "DIČ",
     "town": "Obec",
     "action": "Akcie",
-    "add": "Nový dodávateľ"
+    "add": "Nový dodávateľ",
+    "sure": "Ste si istý?"
   },
   "supplierDetail": {
     "title": "Detail dodávateľa",
