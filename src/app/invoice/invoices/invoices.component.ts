@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource, PageEvent} from '@angular/material';
+import {MatPaginator, MatTableDataSource, PageEvent, Sort} from '@angular/material';
 import {Router} from '@angular/router';
 import {RestService} from '../../rest.service';
 import * as FileSaver from 'file-saver';
@@ -55,6 +55,17 @@ export class InvoicesComponent implements OnInit {
             result += entry.total;
         }
         return result;
+    }
+
+    //TODO implement this function
+    applyFilter(filterValue: string) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
+    //TODO implement this function
+    sortData(sort: Sort) {
+        console.log(sort);
+
     }
 
     getCurrency() {
