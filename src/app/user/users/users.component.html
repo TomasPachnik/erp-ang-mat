@@ -8,7 +8,7 @@
 
         <ng-container matColumnDef="username">
           <th mat-header-cell *matHeaderCellDef> Username</th>
-          <td mat-cell *matCellDef="let user">{{user.login}}</td>
+          <td mat-cell *matCellDef="let user">{{user.username}}</td>
         </ng-container>
 
         <ng-container matColumnDef="name">
@@ -37,7 +37,7 @@
             <button mat-button (click)="onEdit(user)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button *ngIf="user.login!='admin'" mat-button (click)="onDelete(user)">
+            <button *ngIf="user.username!='admin'" mat-button (click)="onDelete(user)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>

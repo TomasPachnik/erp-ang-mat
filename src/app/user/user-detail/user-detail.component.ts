@@ -6,15 +6,15 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 export class User {
   uuid: string;
-  login: string;
+  username: string;
   name: string;
   email: string;
   phone: string;
   enabled: string;
 
-  constructor(uuid: string, login: string, name: string, email: string, phone: string, enabled: string) {
+  constructor(uuid: string, username: string, name: string, email: string, phone: string, enabled: string) {
     this.uuid = uuid;
-    this.login = login;
+    this.username = username;
     this.name = name;
     this.email = email;
     this.phone = phone;
@@ -72,8 +72,8 @@ export class UserDetailComponent implements OnInit {
 
   mapFromUser(input) {
     this.userDetailsForm.controls['uuid'].setValue(input.uuid);
-    this.userDetailsForm.controls['username'].setValue(input.login);
-    if (input.login === 'admin') {
+    this.userDetailsForm.controls['username'].setValue(input.username);
+    if (input.username === 'admin') {
       this.userDetailsForm.controls['username'].disable();
       this.userDetailsForm.controls['enabled'].disable();
     } else {
