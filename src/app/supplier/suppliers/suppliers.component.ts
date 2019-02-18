@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatTableDataSource, PageEvent, Sort} from '@angular/material';
 import {Router} from '@angular/router';
 import {RestService} from '../../rest.service';
 import {LangService} from 'src/app/lang.service';
@@ -69,6 +69,9 @@ export class SuppliersComponent implements OnInit {
 
   suppliers: any = [];
   sure: string;
+  defaultPageSize = 10;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private router: Router, private rest: RestService, private translate: TranslateService) {
     translate.setDefaultLang(LangService.getLanguage());
@@ -78,7 +81,8 @@ export class SuppliersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getSuppliers();
+    this.dataSource.paginator = this.paginator;
+    this.getSuppliers(this.paginator.pageIndex, this.defaultPageSize);
   }
 
   onEdit(supplier) {
@@ -97,18 +101,30 @@ export class SuppliersComponent implements OnInit {
     this.router.navigate(['/suppliers/new-supplier']);
   }
 
-  getSuppliers() {
+  getSuppliers(pageIndex, pageSize) {
     this.suppliers = [];
-    this.rest.getSuppliers().subscribe((data: {}) => {
-      // @ts-ignore
-      this.dataSource = new MatTableDataSource<Supplier>(data);
+    this.rest.getSuppliersWithPagination(pageIndex, pageSize).subscribe(data => {
+      this.dataSource = new MatTableDataSource<Supplier>(data.content);
+      this.paginator.pageIndex = data.pageable.pageIndex;
+      this.paginator.pageSize = data.pageable.pageSize;
+      this.paginator.length = data.total;
     });
+  }
+
+  // TODO implement this function
+  sortData(sort: Sort) {
+    console.log(sort);
+
+  }
+
+  handlePage(event: PageEvent) {
+    this.getSuppliers(event.pageIndex, event.pageSize);
   }
 
   removeSupplier(uuid) {
     if (confirm(this.sure)) {
       this.rest.removeSupplier(uuid).subscribe((data: {}) => {
-        this.getSuppliers();
+        this.getSuppliers(this.paginator.pageIndex, this.paginator.pageSize);
       });
     }
   }

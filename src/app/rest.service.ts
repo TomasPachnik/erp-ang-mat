@@ -86,6 +86,13 @@ export class RestService {
     );
   }
 
+  getSuppliersWithPagination(pageIndex, pageSize): Observable<any> {
+    return this.http.post(endpoint() + 'suppliers/all', JSON.stringify(new Paging(pageIndex, pageSize)), httpOptions).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
   getSupplier(uuid): Observable<any> {
     return this.http.get(endpoint() + 'suppliers/get/' + uuid).pipe(
       tap(_ => map(this.extractData)),
