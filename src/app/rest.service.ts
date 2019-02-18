@@ -107,8 +107,8 @@ export class RestService {
     );
   }
 
-  getUsers(): Observable<any> {
-    return this.http.get(endpoint() + 'users/').pipe(
+  getUsersWithPagination(pageIndex, pageSize): Observable<any> {
+    return this.http.post(endpoint() + 'users/all', JSON.stringify(new Paging(pageIndex, pageSize)), httpOptions).pipe(
       tap(_ => map(this.extractData)),
       catchError(this.handleError)
     );
@@ -151,13 +151,6 @@ export class RestService {
 
   changePassword(password): Observable<any> {
     return this.http.post(endpoint() + 'users/changePassword', JSON.stringify(password), httpOptions).pipe(
-      tap(_ => map(this.extractData)),
-      catchError(this.handleError)
-    );
-  }
-
-  getInvoices(): Observable<any> {
-    return this.http.get(endpoint() + 'invoices/').pipe(
       tap(_ => map(this.extractData)),
       catchError(this.handleError)
     );
