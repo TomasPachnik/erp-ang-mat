@@ -3,8 +3,8 @@ import {MatPaginator, MatTableDataSource, PageEvent, Sort} from '@angular/materi
 import {Router} from '@angular/router';
 import {RestService} from '../../rest.service';
 import * as FileSaver from 'file-saver';
-import {TranslateService} from "@ngx-translate/core";
-import {LangService} from "../../lang.service";
+import {TranslateService} from '@ngx-translate/core';
+import {LangService} from '../../lang.service';
 
 export class Invoice {
     uuid: string;
@@ -57,12 +57,12 @@ export class InvoicesComponent implements OnInit {
         return result;
     }
 
-    //TODO implement this function
+    // TODO implement this function
     applyFilter(filterValue: string) {
         this.dataSource.filter = filterValue.trim().toLowerCase();
     }
 
-    //TODO implement this function
+    // TODO implement this function
     sortData(sort: Sort) {
         console.log(sort);
 
@@ -93,7 +93,7 @@ export class InvoicesComponent implements OnInit {
 
     onDelete(invoice) {
         if (confirm(this.sure)) {
-            this.rest.removeInvoice(invoice.uuid).subscribe((data: {}) => {
+            this.rest.removeInvoice(invoice.uuid).subscribe(() => {
                 this.getInvoices(this.paginator.pageIndex, this.paginator.pageSize);
             });
         }
