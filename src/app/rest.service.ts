@@ -52,7 +52,14 @@ export class RestService {
   }
 
   getCustomers(): Observable<any> {
-    return this.http.get(endpoint() + 'customers/').pipe(
+    return this.http.get(endpoint() + 'customers/all').pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  getCustomersWithPagination(pageIndex, pageSize): Observable<any> {
+    return this.http.post(endpoint() + 'customers/all', JSON.stringify(new Paging(pageIndex, pageSize)), httpOptions).pipe(
       tap(_ => map(this.extractData)),
       catchError(this.handleError)
     );
@@ -80,7 +87,7 @@ export class RestService {
   }
 
   getSuppliers(): Observable<any> {
-    return this.http.get(endpoint() + 'suppliers/').pipe(
+    return this.http.get(endpoint() + 'suppliers/all').pipe(
       tap(_ => map(this.extractData)),
       catchError(this.handleError)
     );
