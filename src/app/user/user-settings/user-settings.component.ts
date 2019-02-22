@@ -124,7 +124,7 @@ export class UserSettingsComponent implements OnInit {
 
   private mapFromUser(data: {}) {
     // @ts-ignore
-    this.userDetailsForm.controls['username'].setValue(data.login);
+    this.userDetailsForm.controls['username'].setValue(data.username);
     // @ts-ignore
     this.userDetailsForm.controls['name'].setValue(data.name);
     // @ts-ignore
