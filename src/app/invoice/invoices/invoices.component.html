@@ -33,17 +33,17 @@
                     <td mat-footer-cell *matFooterCellDef></td>
                 </ng-container>
 
-                <ng-container matColumnDef="deliveryDate">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.deliveryDate' | translate }}</th>
-                    <td mat-cell *matCellDef="let invoice"> {{invoice.deliveryDate | date:'dd.MM.yyyy'}}</td>
-                    <td mat-footer-cell *matFooterCellDef></td>
-                </ng-container>
-
                 <ng-container matColumnDef="dueDate">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.dueDate' | translate }}</th>
                     <td mat-cell *matCellDef="let invoice"> {{invoice.dueDate | date:'dd.MM.yyyy'}}</td>
                     <td mat-footer-cell *matFooterCellDef></td>
                 </ng-container>
+
+              <ng-container matColumnDef="payDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.payDate' | translate }}</th>
+                <td mat-cell *matCellDef="let invoice"> {{invoice.payDate | date:'dd.MM.yyyy'}}</td>
+                <td mat-footer-cell *matFooterCellDef></td>
+              </ng-container>
 
                 <ng-container matColumnDef="price">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.price' | translate }}</th>

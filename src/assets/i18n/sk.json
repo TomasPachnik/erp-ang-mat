@@ -75,6 +75,7 @@
     "issueDate": "Dátum vytvorenia",
     "deliveryDate": "Dátum dodania",
     "dueDate": "Dátum splatnosti",
+    "payDate": "Dátum zaplatenia",
     "price": "Cena",
     "action": "Akcia",
     "add": "Nová faktúra"
@@ -90,6 +91,7 @@
     "issueDate": "Dátum vytvorenia",
     "deliveryDate": "Dátum dodania",
     "dueDate": "Dátum splatnosti",
+    "payDate": "Dátum zaplatenia",
     "note": "Poznámka",
     "assets": "Položky",
     "asset": {

@@ -74,7 +74,8 @@
     "customer": "Customer",
     "issueDate": "Issue date",
     "deliveryDate": "Delivery date",
-    "dueDate": "due date",
+    "dueDate": "Due date",
+    "payDate": "Pay date",
     "price": "Price",
     "action": "Action",
     "add": "Add new invoice"
@@ -89,7 +90,8 @@
     "supplier": "Supplier",
     "issueDate": "Issue date",
     "deliveryDate": "Delivery date",
-    "dueDate": "due date",
+    "dueDate": "Due date",
+    "payDate": "Pay date",
     "note": "Note",
     "assets": "Assets",
     "asset": {
