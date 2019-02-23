@@ -12,43 +12,36 @@
                 <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.name' | translate }}</th>
                     <td mat-cell *matCellDef="let invoice">{{invoice.name}}</td>
-                    <td mat-footer-cell *matFooterCellDef> {{ 'invoices.total' | translate }}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="supplier">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.supplier' | translate }}</th>
                     <td mat-cell *matCellDef="let invoice"> {{invoice.supplier.name}}</td>
-                    <td mat-footer-cell *matFooterCellDef></td>
                 </ng-container>
 
                 <ng-container matColumnDef="customer">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.customer' | translate }}</th>
                     <td mat-cell *matCellDef="let invoice"> {{invoice.customer.name}}</td>
-                    <td mat-footer-cell *matFooterCellDef></td>
                 </ng-container>
 
                 <ng-container matColumnDef="dateOfIssue">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.issueDate' | translate }}</th>
                     <td mat-cell *matCellDef="let invoice"> {{invoice.dateOfIssue | date:'dd.MM.yyyy'}}</td>
-                    <td mat-footer-cell *matFooterCellDef></td>
                 </ng-container>
 
                 <ng-container matColumnDef="dueDate">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.dueDate' | translate }}</th>
                     <td mat-cell *matCellDef="let invoice"> {{invoice.dueDate | date:'dd.MM.yyyy'}}</td>
-                    <td mat-footer-cell *matFooterCellDef></td>
                 </ng-container>
 
               <ng-container matColumnDef="payDate">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.payDate' | translate }}</th>
                 <td mat-cell *matCellDef="let invoice"> {{invoice.payDate | date:'dd.MM.yyyy'}}</td>
-                <td mat-footer-cell *matFooterCellDef></td>
               </ng-container>
 
                 <ng-container matColumnDef="price">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'invoices.price' | translate }}</th>
                     <td mat-cell *matCellDef="let invoice"> {{invoice.total + invoice.currency}}</td>
-                    <td mat-footer-cell *matFooterCellDef>{{getTotalCost() + getCurrency()}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="actions">
@@ -64,12 +57,10 @@
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
-                    <td mat-footer-cell *matFooterCellDef></td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
             </table>
             <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons
                            (page)="handlePage($event)"></mat-paginator>

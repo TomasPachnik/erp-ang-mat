@@ -58,7 +58,6 @@ export class InvoicesComponent implements OnInit {
     return result;
   }
 
-  // TODO implement this function
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
