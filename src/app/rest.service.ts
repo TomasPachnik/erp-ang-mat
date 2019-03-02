@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../environments/environment';
-import {map, catchError, tap} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 
@@ -151,6 +151,13 @@ export class RestService {
 
   removeUser(uuid): Observable<any> {
     return this.http.get(endpoint() + 'users/remove/' + uuid).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  auditBackup(user): Observable<any> {
+    return this.http.post(endpoint() + 'audit/auditEmail', JSON.stringify(user), httpOptions).pipe(
       tap(_ => map(this.extractData)),
       catchError(this.handleError)
     );

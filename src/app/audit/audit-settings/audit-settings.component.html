@@ -1,3 +1,35 @@
-<p>
-  audit-settings works!
-</p>
+<div class="moved-down" xmlns="http://www.w3.org/1999/html">
+  <mat-card class="content-card">
+    <mat-card-title>Audit Settings</mat-card-title>
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Backup">
+          <br/>
+          <form [formGroup]="auditBackup" (ngSubmit)="onSubmitAuditBackup(auditBackup.value)">
+            <div class="form-container">
+              <mat-form-field>
+                <input matInput placeholder="Backup will be send to this email address" #email formControlName="email" required maxlength="60">
+                <mat-hint align="end">{{email.value.length}} / 60</mat-hint>
+              </mat-form-field>
+              <button class="submit-btn small-button" color="primary" mat-raised-button type="submit"
+                      [disabled]="!auditBackup.valid">Submit
+              </button>
+            </div>
+          </form>
+        </mat-tab>
+        <mat-tab label="Restore">
+          <br/>
+
+        </mat-tab>
+        <mat-tab label="Recreate data">
+          <br/>
+
+        </mat-tab>
+        <mat-tab label="Recreate audit">
+          <br/>
+
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>
