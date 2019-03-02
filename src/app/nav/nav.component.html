@@ -23,6 +23,9 @@
       <a *ngIf="hasAdminRole()" mat-list-item routerLink="/users">
         <mat-icon>supervised_user_circle</mat-icon>&nbsp;<span>{{ 'nav.users' | translate }}</span>
       </a>
+      <a *ngIf="hasAdminRole()" mat-list-item routerLink="/audit/settings">
+        <mat-icon>supervised_user_circle</mat-icon>&nbsp;<span>{{ 'nav.audit.settings' | translate }}</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
