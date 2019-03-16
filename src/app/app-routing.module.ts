@@ -25,7 +25,6 @@ const routes: Routes = [
     component: HomeLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      {path: '', component: HomePageComponent},
       {path: 'user/settings', component: UserSettingsComponent},
       {path: 'customers', component: CustomersComponent},
       {path: 'customers/:uuid', component: CustomerDetailComponent},

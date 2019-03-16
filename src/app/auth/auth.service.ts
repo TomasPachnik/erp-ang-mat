@@ -40,7 +40,7 @@ export class AuthService {
         this.rest.signIn(user).subscribe((data) => {
             // @ts-ignore
             sessionStorage.setItem('access_token', data.token);
-            this.router.navigate(['/']);
+            this.router.navigate(['/invoices']);
             resolve(true);
           },
           error => {
