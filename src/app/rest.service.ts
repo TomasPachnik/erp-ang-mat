@@ -6,9 +6,9 @@ import {Observable, throwError} from 'rxjs';
 
 const endpoint = (() => {
   if (environment.production) {
-    return 'https://erpapp.eu:8443/';
+    return 'https://mensoro.com:8442/';
   } else {
-    return 'https://localhost:8443/';
+    return 'https://localhost:8442/';
   }
 });
 
