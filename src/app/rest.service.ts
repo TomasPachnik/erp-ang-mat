@@ -6,7 +6,7 @@ import {Observable, throwError} from 'rxjs';
 
 const endpoint = (() => {
   if (environment.production) {
-    return 'http://localhost:8084/';
+    return 'http://192.168.2.221:8084/';
   } else {
     return 'http://localhost:8080/';
   }
