@@ -20,6 +20,12 @@ export class Invoice {
   issuer: string;
 }
 
+export class Last12Months {
+  from: Date;
+  amount: number;
+  invoiceCount: number;
+}
+
 const ELEMENT_DATA: Invoice[] = [];
 
 @Component({
@@ -29,9 +35,10 @@ const ELEMENT_DATA: Invoice[] = [];
 })
 export class InvoicesComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'supplier', 'customer', 'dateOfIssue', 'dueDate', 'payDate', 'price', 'actions'];
+  displayedColumns: string[] = ['name', 'supplier', 'customer', 'dateOfIssue', 'deliveryDate', 'dueDate', 'payDate', 'price', 'actions'];
   dataSource = new MatTableDataSource<Invoice>(ELEMENT_DATA);
   defaultPageSize = 10;
+  last12Months = new Last12Months();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   sure: string;
@@ -46,6 +53,7 @@ export class InvoicesComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.getInvoices(this.paginator.pageIndex, this.defaultPageSize);
+    this.getLast12Months();
   }
 
 
@@ -80,6 +88,12 @@ export class InvoicesComponent implements OnInit {
     this.rest.generateInvoice(invoice.uuid).subscribe((file: Blob) => {
       const filename = invoice.name + '.pdf';
       FileSaver.saveAs(file, filename);
+    });
+  }
+
+  getLast12Months() {
+    this.rest.getLast12Months().subscribe(data => {
+      this.last12Months = data;
     });
   }
 

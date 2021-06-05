@@ -78,7 +78,9 @@
     "payDate": "Pay date",
     "price": "Price",
     "action": "Action",
-    "add": "Add new invoice"
+    "add": "Add new invoice",
+    "last12Months1": "Last 12 months total:",
+    "last12Months2": "Invoices count:"
   },
   "invoiceDetail": {
     "title": "Invoice detail",

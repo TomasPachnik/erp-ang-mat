@@ -6,9 +6,9 @@ import {Observable, throwError} from 'rxjs';
 
 const endpoint = (() => {
   if (environment.production) {
-    return 'https://mensoro.com:8442/';
+    return '0.0.0.0:8084/';
   } else {
-    return 'https://localhost:8442/';
+    return 'http://localhost:8080/';
   }
 });
 
@@ -186,6 +186,13 @@ export class RestService {
 
   getInvoice(uuid): Observable<any> {
     return this.http.get(endpoint() + 'invoices/get/' + uuid).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
+  getLast12Months(): Observable<any> {
+    return this.http.get(endpoint() + 'invoices/last12Months').pipe(
       tap(_ => map(this.extractData)),
       catchError(this.handleError)
     );
