@@ -79,6 +79,7 @@
     "price": "Price",
     "action": "Action",
     "add": "Add new invoice",
+    "addQuick": "Add new quick invoice",
     "last12Months1": "Last 12 months total:",
     "last12Months2": "Invoices count:"
   },

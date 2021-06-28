@@ -105,6 +105,10 @@ export class InvoicesComponent implements OnInit {
     this.router.navigate(['/invoices/new-invoice']);
   }
 
+  newQuickEntry() {
+    this.router.navigate(['/invoices/new-quick-invoice']);
+  }
+
   onDelete(invoice) {
     if (confirm(this.sure)) {
       this.rest.removeInvoice(invoice.uuid).subscribe(() => {

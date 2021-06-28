@@ -57,6 +57,7 @@ import {MatProgressButtonsModule} from 'mat-progress-buttons';
 import {ToDoComponent} from './to-do/to-do.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AuditSettingsComponent } from './audit/audit-settings/audit-settings.component';
+import {QuickInvoiceDetailComponent} from './invoice/quick-invoice-detail/quick-invoice-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -112,6 +113,7 @@ export class MyDateAdapter extends NativeDateAdapter {
     UserDetailComponent,
     InvoicesComponent,
     InvoiceDetailComponent,
+    QuickInvoiceDetailComponent,
     ToDoComponent,
     AuditSettingsComponent
   ],

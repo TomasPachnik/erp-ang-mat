@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InvoiceDetailComponent } from './invoice-detail.component';
+import { QuickInvoiceDetailComponent } from './quick-invoice-detail.component';
 
 describe('QuickInvoiceDetailComponent', () => {
-  let component: InvoiceDetailComponent;
-  let fixture: ComponentFixture<InvoiceDetailComponent>;
+  let component: QuickInvoiceDetailComponent;
+  let fixture: ComponentFixture<QuickInvoiceDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InvoiceDetailComponent ]
+      declarations: [ QuickInvoiceDetailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InvoiceDetailComponent);
+    fixture = TestBed.createComponent(QuickInvoiceDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

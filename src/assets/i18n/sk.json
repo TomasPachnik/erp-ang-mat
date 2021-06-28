@@ -79,6 +79,7 @@
     "price": "Suma",
     "action": "Akcia",
     "add": "Nová faktúra",
+    "addQuick": "Nová rýchla faktúra",
     "last12Months1": "Posledných 12 mesiacov celkovo:",
     "last12Months2": "Počet faktúr:"
   },

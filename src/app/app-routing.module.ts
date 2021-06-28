@@ -3,7 +3,6 @@ import {Routes, RouterModule} from '@angular/router';
 import {AuthGuard} from './auth/auth.guard';
 import {LoginComponent} from './login/login.component';
 import {LoginLayoutComponent} from './layouts/login-layout/login-layout.component';
-import {HomePageComponent} from './home-page/home-page.component';
 import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
 import {UserSettingsComponent} from './user/user-settings/user-settings.component';
 import {CustomersComponent} from './customer/customers/customers.component';
@@ -18,6 +17,7 @@ import {InvoicesComponent} from './invoice/invoices/invoices.component';
 import {InvoiceDetailComponent} from './invoice/invoice-detail/invoice-detail.component';
 import {ToDoComponent} from './to-do/to-do.component';
 import {AuditSettingsComponent} from './audit/audit-settings/audit-settings.component';
+import {QuickInvoiceDetailComponent} from './invoice/quick-invoice-detail/quick-invoice-detail.component';
 
 const routes: Routes = [
   {
@@ -35,6 +35,7 @@ const routes: Routes = [
       {path: 'invoices', component: InvoicesComponent},
       {path: 'invoices/:uuid', component: InvoiceDetailComponent},
       {path: 'invoices/new-invoice', component: InvoiceDetailComponent},
+      {path: 'invoices/new-quick-invoice', component: QuickInvoiceDetailComponent},
       {path: '404', component: NotFoundComponent}
     ]
   },
