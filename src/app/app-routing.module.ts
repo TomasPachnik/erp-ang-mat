@@ -35,7 +35,7 @@ const routes: Routes = [
       {path: 'invoices', component: InvoicesComponent},
       {path: 'invoices/:uuid', component: InvoiceDetailComponent},
       {path: 'invoices/new-invoice', component: InvoiceDetailComponent},
-      {path: 'invoices/new-quick-invoice', component: QuickInvoiceDetailComponent},
+      {path: 'new-quick-invoice', component: QuickInvoiceDetailComponent},
       {path: '404', component: NotFoundComponent}
     ]
   },

@@ -213,6 +213,13 @@ export class RestService {
     );
   }
 
+  saveQuickInvoice(invoice): Observable<any> {
+    return this.http.post(endpoint() + 'invoices/saveQuickInvoice', JSON.stringify(invoice), httpOptions).pipe(
+      tap(_ => map(this.extractData)),
+      catchError(this.handleError)
+    );
+  }
+
   generateInvoice(uuid): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Accept', 'application/pdf');

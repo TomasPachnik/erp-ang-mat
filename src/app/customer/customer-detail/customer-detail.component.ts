@@ -16,16 +16,16 @@ export class CustomerDetailComponent implements OnInit {
     customerDetailsForm = this.fb.group({
         uuid: [null],
         name: ['', Validators.required],
-        companyIdentificationNumber: ['', Validators.required],
-        taxIdentificationNumber: ['', Validators.required],
+        companyIdentificationNumber: [''],
+        taxIdentificationNumber: [''],
         addressUuid: [null],
         street: ['', Validators.required],
         houseNumber: ['', Validators.required],
         postalCode: ['', Validators.required],
         town: ['', Validators.required],
         country: ['', Validators.required],
-        bankName: ['', Validators.required],
-        iban: ['', Validators.required],
+        bankName: [''],
+        iban: [''],
         bankAccountUuid: [null],
     });
 

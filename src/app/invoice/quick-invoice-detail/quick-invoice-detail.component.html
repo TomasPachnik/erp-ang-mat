@@ -20,16 +20,46 @@
             <mat-select placeholder="{{ 'invoiceDetail.currency' | translate }}" formControlName="currency"
                         required>
               <mat-option value="€">€</mat-option>
-              <mat-option value="$">$</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <mat-select placeholder="{{ 'invoiceDetail.customer' | translate }}" formControlName="customer"
-                        required>
-              <mat-option *ngFor="let customer of customers" [value]="customer.uuid">
-                {{customer.name}}
-              </mat-option>
-            </mat-select>
+            <input matInput placeholder="{{ 'customerDetail.name' | translate }}" formControlName="customerName"
+                   required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'customerDetail.cin' | translate }}"
+                   formControlName="companyIdentificationNumber">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'customerDetail.tin' | translate }}"
+                   formControlName="taxIdentificationNumber">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'customerDetail.street' | translate }}" formControlName="street"
+                   required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'customerDetail.houseNumber' | translate }}"
+                   formControlName="houseNumber" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'customerDetail.postalCode' | translate }}"
+                   formControlName="postalCode" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'customerDetail.town' | translate }}" formControlName="town"
+                   required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'customerDetail.country' | translate }}"
+                   formControlName="country" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'customerDetail.bankName' | translate }}"
+                   formControlName="bankName">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{ 'customerDetail.iban' | translate }}" formControlName="iban">
           </mat-form-field>
           <mat-form-field>
             <mat-select placeholder="{{ 'invoiceDetail.supplier' | translate }}" formControlName="supplier"
